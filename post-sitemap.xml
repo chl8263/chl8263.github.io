@@ -8,16 +8,24 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/11/16/Variable-comment/</loc>
-        <lastmod>2019-11-18T03:47:39.672Z</lastmod>
+        <loc>http://yoursite.com/2019/11/17/Compare/</loc>
+        <lastmod>2019-11-18T06:39:33.145Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/11/17/Compare/</loc>
-        <lastmod>2019-11-18T00:15:07.344Z</lastmod>
+        <loc>http://yoursite.com/2019/11/12/What%20is%20javascript/</loc>
+        <lastmod>2019-11-18T06:05:22.131Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/11/16/Variable-comment/</loc>
+        <lastmod>2019-11-18T06:04:40.266Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,23 +33,7 @@
 
     <url>
         <loc>http://yoursite.com/2019/11/16/Number-String/</loc>
-        <lastmod>2019-11-17T09:02:25.848Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2019/11/12/init/</loc>
-        <lastmod>2019-11-17T01:24:36.168Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2019/11/10/hello-world/</loc>
-        <lastmod>2019-11-11T07:06:05.022Z</lastmod>
+        <lastmod>2019-11-18T06:04:23.866Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
