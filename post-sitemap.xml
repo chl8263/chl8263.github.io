@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/11/16/Variable-comment/</loc>
+        <lastmod>2019-11-18T03:47:39.672Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2019/11/17/Compare/</loc>
         <lastmod>2019-11-18T00:15:07.344Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,14 +26,6 @@
     <url>
         <loc>http://yoursite.com/2019/11/16/Number-String/</loc>
         <lastmod>2019-11-17T09:02:25.848Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2019/11/16/Variable-comment/</loc>
-        <lastmod>2019-11-17T07:55:57.678Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
