@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/11/18/Conditional-statement/</loc>
+        <lastmod>2019-11-19T05:57:29.869Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2019/11/17/Compare/</loc>
         <lastmod>2019-11-18T07:13:49.527Z</lastmod>
         <changefreq>weekly</changefreq>

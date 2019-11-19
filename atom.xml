@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-18T07:13:49.527Z</updated>
+  <updated>2019-11-19T05:57:29.869Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Conditional statement</title>
+    <link href="http://yoursite.com/2019/11/18/Conditional-statement/"/>
+    <id>http://yoursite.com/2019/11/18/Conditional-statement/</id>
+    <published>2019-11-19T04:48:06.000Z</published>
+    <updated>2019-11-19T05:57:29.869Z</updated>
+    
+    <content type="html"><![CDATA[<p>Conditional statement makes application behave different according to given condition.</p><a id="more"></a><h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">  <span class="built_in">console</span>.warn(<span class="string">"hello"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The example above result appear “hello” at console.<br>Because there is “true” in the if statement.</p><p>It is always executed if there is “true” in the if statement.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">false</span>)&#123;</span><br><span class="line">  <span class="built_in">console</span>.warn(<span class="string">"hello"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The example above don’t executed, Because there is “false” in the if statement.</p><p>As you saw the example, “true” have meaning always executed and “false” have meaning always don’t executed.</p><h2 id="else"><a href="#else" class="headerlink" title="else"></a>else</h2><p>“else” is used when you need process more complex case.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span>)&#123;</span><br><span class="line">  <span class="built_in">console</span>.warn(<span class="string">"hello"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.warn(<span class="string">"No hello"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The result is “hello” at console, because a’s value is 1.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span>)&#123;</span><br><span class="line">  <span class="built_in">console</span>.warn(<span class="string">"hello"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.warn(<span class="string">"No hello"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The result is “No hello” at console, because a’s value is 2.</p><h2 id="else-if"><a href="#else-if" class="headerlink" title="else if"></a>else if</h2><p>You can make more various case if use “else if”</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(a == <span class="number">1</span>)&#123;</span><br><span class="line">  <span class="built_in">console</span>.warn(<span class="string">"hello"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a == <span class="number">2</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.warn(<span class="string">"No hello"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.warn(<span class="string">"Not hello"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The example above result is No hello, Because true in the else if statement.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Conditional statement makes application behave different according to given condition.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Develop" scheme="http://yoursite.com/categories/Develop/"/>
+    
+      <category term="javascript" scheme="http://yoursite.com/categories/Develop/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>Compare</title>
