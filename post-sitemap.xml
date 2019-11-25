@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/11/24/How-to-install-Oracle-in-Ubuntu/</loc>
+        <lastmod>2019-11-25T04:52:42.368Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/11/21/Preferences%20for%20Quiz-Database/</loc>
+        <lastmod>2019-11-22T05:54:46.904Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2019/11/18/Conditional-statement/</loc>
         <lastmod>2019-11-19T05:57:29.869Z</lastmod>
         <changefreq>weekly</changefreq>
