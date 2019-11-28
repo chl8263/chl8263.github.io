@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>How to release &#39;scott&#39;user in Oracle - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"This document is how to release ‘scott’ user in oracle for test.\n\n\nIf you install oracle first, ‘SCOTT’ user is locking basically.\nIf you want use ‘SCOTT’ user for test, you can release command below.\nFitst of all, you have to connect oracle as DBA.\nCommand for release ‘SCOTT’ user.\n1ALTER USER scott IDENTIFIED By tiger ACCOUNT UNLOCK;\n\nConnect using ‘SCOTT’\n1CONNECT scott/tiger\n\nIf you don’t have ‘SCOTT’ user,create user to name ‘scott’and create table, data.\n\nCREATE ‘SCOTT’ user after connect as DBA authority.\n\n123CRAETE USER scott IDENTIFIED BY tigerDEFAULT TABLESPACE usersTEMPORARY TABLESPACE temp;\n\n\nAuthorization\n1GRANT connect, resource TO scott;\n\nExecute script to connect using scott user\n12CONNECT scott/tiger@$ORACLE_HOME/sqlplus/demo/demlbld.sql\n\n\n\nThe path of demobld.sql is defferent each other,you should correct your own path or execute script after download script.\ndemobld.sql downloadhttp://www.gurubee.net/files/sql/demobld.sql\ndemobld.sql Script Sample\n123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196197198199200201202203204205206207DROP TABLE EMP;DROP TABLE DEPT;DROP TABLE BONUS;DROP TABLE SALGRADE;DROP TABLE DUMMY;CREATE TABLE EMP       (EMPNO NUMBER(4) NOT NULL,        ENAME VARCHAR2(10),        JOB VARCHAR2(9),        MGR NUMBER(4),        HIREDATE DATE,        SAL NUMBER(7, 2),        COMM NUMBER(7, 2),        DEPTNO NUMBER(2));INSERT INTO EMP VALUES        (7369, &apos;SMITH&apos;,  &apos;CLERK&apos;,     7902,        sysdate,  800, NULL, 20);INSERT INTO EMP VALUES        (7499, &apos;ALLEN&apos;,  &apos;SALESMAN&apos;,  7698,        sysdate, 1600,  300, 30);INSERT INTO EMP VALUES        (7521, &apos;WARD&apos;,   &apos;SALESMAN&apos;,  7698,        sysdate, 1250,  500, 30);INSERT INTO EMP VALUES        (7566, &apos;JONES&apos;,  &apos;MANAGER&apos;,   7839,        sysdate,  2975, NULL, 20);INSERT INTO EMP VALUES        (7654, &apos;MARTIN&apos;, &apos;SALESMAN&apos;,  7698,        sysdate, 1250, 1400, 30);INSERT INTO EMP VALUES        (7698, &apos;BLAKE&apos;,  &apos;MANAGER&apos;,   7839,        sysdate,  2850, NULL, 30);INSERT INTO EMP VALUES        (7782, &apos;CLARK&apos;,  &apos;MANAGER&apos;,   7839,        sysdate,  2450, NULL, 10);INSERT INTO EMP VALUES        (7788, &apos;SCOTT&apos;,  &apos;ANALYST&apos;,   7566,        sysdate, 3000, NULL, 20);INSERT INTO EMP VALUES        (7839, &apos;KING&apos;,   &apos;PRESIDENT&apos;, NULL,        sysdate, 5000, NULL, 10);INSERT INTO EMP VALUES        (7844, &apos;TURNER&apos;, &apos;SALESMAN&apos;,  7698,        sysdate,  1500,    0, 30);INSERT INTO EMP VALUES        (7876, &apos;ADAMS&apos;,  &apos;CLERK&apos;,     7788,        sysdate, 1100, NULL, 20);INSERT INTO EMP VALUES        (7900, &apos;JAMES&apos;,  &apos;CLERK&apos;,     7698,        sysdate,   950, NULL, 30);INSERT INTO EMP VALUES        (7902, &apos;FORD&apos;,   &apos;ANALYST&apos;,   7566,        sysdate,  3000, NULL, 20);INSERT INTO EMP VALUES        (7934, &apos;MILLER&apos;, &apos;CLERK&apos;,     7782,        sysdate, 1300, NULL, 10);CREATE TABLE DEPT       (DEPTNO NUMBER(2),        DNAME VARCHAR2(14),        LOC VARCHAR2(13) );INSERT INTO DEPT VALUES (10, &apos;ACCOUNTING&apos;, &apos;NEW YORK&apos;);INSERT INTO DEPT VALUES (20, &apos;RESEARCH&apos;,   &apos;DALLAS&apos;);INSERT INTO DEPT VALUES (30, &apos;SALES&apos;,      &apos;CHICAGO&apos;);INSERT INTO DEPT VALUES (40, &apos;OPERATIONS&apos;, &apos;BOSTON&apos;);CREATE TABLE BONUS        (ENAME VARCHAR2(10),         JOB   VARCHAR2(9),         SAL   NUMBER,         COMM  NUMBER);CREATE TABLE SALGRADE        (GRADE NUMBER,         LOSAL NUMBER,         HISAL NUMBER);INSERT INTO SALGRADE VALUES (1,  700, 1200);INSERT INTO SALGRADE VALUES (2, 1201, 1400);INSERT INTO SALGRADE VALUES (3, 1401, 2000);INSERT INTO SALGRADE VALUES (4, 2001, 3000);INSERT INTO SALGRADE VALUES (5, 3001, 9999);CREATE TABLE DUMMY        (DUMMY NUMBER);INSERT INTO DUMMY VALUES (0);COMMIT;\n","dateCreated":"2019-11-27T22:12:21-08:00","dateModified":"2019-11-27T23:30:11-08:00","datePublished":"2019-11-27T22:12:21-08:00","description":"This document is how to release ‘scott’ user in oracle for test.","headline":"How to release 'scott'user in Oracle","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2019/11/27/How-to-release-scott-user-in-Oracle/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2019/11/27/How-to-release-scott-user-in-Oracle/","keywords":"Oracle"}</script>
+    <meta name="description" content="This document is how to release ‘scott’ user in oracle for test.">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="How to release &#39;scott&#39;user in Oracle">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;27&#x2F;How-to-release-scott-user-in-Oracle&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="This document is how to release ‘scott’ user in oracle for test.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-28T07:30:11.547Z">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2019/11/27/how-to-release-scott-user-in-oracle/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/%20" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            How to release &#39;scott&#39;user in Oracle
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2019-11-27T22:12:21-08:00">
+	
+		    Nov 27, 2019
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/Oracle/">Oracle</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>This document is how to release ‘scott’ user in oracle for test.</p>
+<a id="more"></a>
+
+<p>If you install oracle first, ‘SCOTT’ user is locking basically.</p>
+<p>If you want use ‘SCOTT’ user for test, you can release command below.</p>
+<p><strong>Fitst of all, you have to connect oracle as DBA.</strong></p>
+<p>Command for release ‘SCOTT’ user.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER scott IDENTIFIED By tiger ACCOUNT UNLOCK;</span><br></pre></td></tr></table></figure>
+
+<p>Connect using ‘SCOTT’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CONNECT scott/tiger</span><br></pre></td></tr></table></figure>
+
+<p>If you don’t have ‘SCOTT’ user,<br>create user to name ‘scott’<br>and create table, data.</p>
+<ol>
+<li>CREATE ‘SCOTT’ user after connect as DBA authority.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CRAETE USER scott IDENTIFIED BY tiger</span><br><span class="line">DEFAULT TABLESPACE users</span><br><span class="line">TEMPORARY TABLESPACE temp;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>Authorization</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT connect, resource TO scott;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Execute script to connect using scott user</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONNECT scott/tiger</span><br><span class="line">@$ORACLE_HOME/sqlplus/demo/demlbld.sql</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>The path of demobld.sql is defferent each other,<br>you should correct your own path or execute script after download script.</p>
+<p><strong>demobld.sql download</strong><br><a href="http://www.gurubee.net/files/sql/demobld.sql" target="_blank" rel="external nofollow noopener noreferrer">http://www.gurubee.net/files/sql/demobld.sql</a></p>
+<p><strong>demobld.sql Script Sample</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE EMP;</span><br><span class="line"></span><br><span class="line">DROP TABLE DEPT;</span><br><span class="line"></span><br><span class="line">DROP TABLE BONUS;</span><br><span class="line"></span><br><span class="line">DROP TABLE SALGRADE;</span><br><span class="line"></span><br><span class="line">DROP TABLE DUMMY;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE TABLE EMP</span><br><span class="line"></span><br><span class="line">       (EMPNO NUMBER(4) NOT NULL,</span><br><span class="line"></span><br><span class="line">        ENAME VARCHAR2(10),</span><br><span class="line"></span><br><span class="line">        JOB VARCHAR2(9),</span><br><span class="line"></span><br><span class="line">        MGR NUMBER(4),</span><br><span class="line"></span><br><span class="line">        HIREDATE DATE,</span><br><span class="line"></span><br><span class="line">        SAL NUMBER(7, 2),</span><br><span class="line"></span><br><span class="line">        COMM NUMBER(7, 2),</span><br><span class="line"></span><br><span class="line">        DEPTNO NUMBER(2));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7369, &apos;SMITH&apos;,  &apos;CLERK&apos;,     7902,</span><br><span class="line"></span><br><span class="line">        sysdate,  800, NULL, 20);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7499, &apos;ALLEN&apos;,  &apos;SALESMAN&apos;,  7698,</span><br><span class="line"></span><br><span class="line">        sysdate, 1600,  300, 30);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7521, &apos;WARD&apos;,   &apos;SALESMAN&apos;,  7698,</span><br><span class="line"></span><br><span class="line">        sysdate, 1250,  500, 30);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7566, &apos;JONES&apos;,  &apos;MANAGER&apos;,   7839,</span><br><span class="line"></span><br><span class="line">        sysdate,  2975, NULL, 20);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7654, &apos;MARTIN&apos;, &apos;SALESMAN&apos;,  7698,</span><br><span class="line"></span><br><span class="line">        sysdate, 1250, 1400, 30);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7698, &apos;BLAKE&apos;,  &apos;MANAGER&apos;,   7839,</span><br><span class="line"></span><br><span class="line">        sysdate,  2850, NULL, 30);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7782, &apos;CLARK&apos;,  &apos;MANAGER&apos;,   7839,</span><br><span class="line"></span><br><span class="line">        sysdate,  2450, NULL, 10);</span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7788, &apos;SCOTT&apos;,  &apos;ANALYST&apos;,   7566,</span><br><span class="line"></span><br><span class="line">        sysdate, 3000, NULL, 20);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7839, &apos;KING&apos;,   &apos;PRESIDENT&apos;, NULL,</span><br><span class="line"></span><br><span class="line">        sysdate, 5000, NULL, 10);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7844, &apos;TURNER&apos;, &apos;SALESMAN&apos;,  7698,</span><br><span class="line"></span><br><span class="line">        sysdate,  1500,    0, 30);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7876, &apos;ADAMS&apos;,  &apos;CLERK&apos;,     7788,</span><br><span class="line"></span><br><span class="line">        sysdate, 1100, NULL, 20);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7900, &apos;JAMES&apos;,  &apos;CLERK&apos;,     7698,</span><br><span class="line"></span><br><span class="line">        sysdate,   950, NULL, 30);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7902, &apos;FORD&apos;,   &apos;ANALYST&apos;,   7566,</span><br><span class="line"></span><br><span class="line">        sysdate,  3000, NULL, 20);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO EMP VALUES</span><br><span class="line"></span><br><span class="line">        (7934, &apos;MILLER&apos;, &apos;CLERK&apos;,     7782,</span><br><span class="line"></span><br><span class="line">        sysdate, 1300, NULL, 10);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE TABLE DEPT</span><br><span class="line"></span><br><span class="line">       (DEPTNO NUMBER(2),</span><br><span class="line"></span><br><span class="line">        DNAME VARCHAR2(14),</span><br><span class="line"></span><br><span class="line">        LOC VARCHAR2(13) );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO DEPT VALUES (10, &apos;ACCOUNTING&apos;, &apos;NEW YORK&apos;);</span><br><span class="line"></span><br><span class="line">INSERT INTO DEPT VALUES (20, &apos;RESEARCH&apos;,   &apos;DALLAS&apos;);</span><br><span class="line"></span><br><span class="line">INSERT INTO DEPT VALUES (30, &apos;SALES&apos;,      &apos;CHICAGO&apos;);</span><br><span class="line"></span><br><span class="line">INSERT INTO DEPT VALUES (40, &apos;OPERATIONS&apos;, &apos;BOSTON&apos;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE TABLE BONUS</span><br><span class="line"></span><br><span class="line">        (ENAME VARCHAR2(10),</span><br><span class="line"></span><br><span class="line">         JOB   VARCHAR2(9),</span><br><span class="line"></span><br><span class="line">         SAL   NUMBER,</span><br><span class="line"></span><br><span class="line">         COMM  NUMBER);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE TABLE SALGRADE</span><br><span class="line"></span><br><span class="line">        (GRADE NUMBER,</span><br><span class="line"></span><br><span class="line">         LOSAL NUMBER,</span><br><span class="line"></span><br><span class="line">         HISAL NUMBER);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO SALGRADE VALUES (1,  700, 1200);</span><br><span class="line"></span><br><span class="line">INSERT INTO SALGRADE VALUES (2, 1201, 1400);</span><br><span class="line"></span><br><span class="line">INSERT INTO SALGRADE VALUES (3, 1401, 2000);</span><br><span class="line"></span><br><span class="line">INSERT INTO SALGRADE VALUES (4, 2001, 3000);</span><br><span class="line"></span><br><span class="line">INSERT INTO SALGRADE VALUES (5, 3001, 9999);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE TABLE DUMMY</span><br><span class="line"></span><br><span class="line">        (DUMMY NUMBER);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO DUMMY VALUES (0);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">COMMIT;</span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Oracle/" rel="tag">Oracle</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/11/24/How-to-install-Oracle-in-Ubuntu/" data-tooltip="How to install Oracle in Ubuntu" aria-label="NEXT: How to install Oracle in Ubuntu">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/11/27/How-to-release-scott-user-in-Oracle/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/11/27/How-to-release-scott-user-in-Oracle/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/11/27/How-to-release-scott-user-in-Oracle/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2019 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/11/24/How-to-install-Oracle-in-Ubuntu/" data-tooltip="How to install Oracle in Ubuntu" aria-label="NEXT: How to install Oracle in Ubuntu">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/11/27/How-to-release-scott-user-in-Oracle/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/11/27/How-to-release-scott-user-in-Oracle/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/11/27/How-to-release-scott-user-in-Oracle/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/11/27/How-to-release-scott-user-in-Oracle/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/11/27/How-to-release-scott-user-in-Oracle/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/11/27/How-to-release-scott-user-in-Oracle/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>
