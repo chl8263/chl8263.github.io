@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/11/29/Database-Question-1/</loc>
+        <lastmod>2019-12-01T08:56:09.056Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2019/11/27/How-to-release-scott-user-in-Oracle/</loc>
         <lastmod>2019-11-28T07:30:11.547Z</lastmod>
         <changefreq>weekly</changefreq>

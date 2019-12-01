@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-28T07:30:11.547Z</updated>
+  <updated>2019-12-01T08:56:09.056Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Database Question 1</title>
+    <link href="http://yoursite.com/2019/11/29/Database-Question-1/"/>
+    <id>http://yoursite.com/2019/11/29/Database-Question-1/</id>
+    <published>2019-11-30T07:34:53.000Z</published>
+    <updated>2019-12-01T08:56:09.056Z</updated>
+    
+    <content type="html"><![CDATA[<p>Oracle Database practice question 1.</p><a id="more"></a><p>This Database practice question using the ‘SCOTT’ in oracle.</p><h3 id="1-Print-EMPNO-ENAME-with-EMPNO-number-7369-7698"><a href="#1-Print-EMPNO-ENAME-with-EMPNO-number-7369-7698" class="headerlink" title="1. Print EMPNO,ENAME with EMPNO number 7369,7698"></a>1. Print EMPNO,ENAME with EMPNO number 7369,7698</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT EMPNO, ENAME</span><br><span class="line">  FROM EMP</span><br><span class="line"> WHERE EMPNO IN (&apos;7369&apos;,&apos;7698&apos;)</span><br></pre></td></tr></table></figure><h3 id="2-Print-EMPNO-ENAME-without-EMPNO-number-7369-7698"><a href="#2-Print-EMPNO-ENAME-without-EMPNO-number-7369-7698" class="headerlink" title="2. Print EMPNO, ENAME without EMPNO number 7369,7698"></a>2. Print EMPNO, ENAME without EMPNO number 7369,7698</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT EMPNO, ENAME</span><br><span class="line">  FROM EMP</span><br><span class="line"> WHERE EMPNO NOT IN (&apos;7369&apos;,&apos;7698&apos;)</span><br></pre></td></tr></table></figure><h3 id="3-Print-all-EMP-table-information-with-SAL-between-3000-and-5000"><a href="#3-Print-all-EMP-table-information-with-SAL-between-3000-and-5000" class="headerlink" title="3. Print all EMP table information with SAL between 3000 and 5000."></a>3. Print all EMP table information with SAL between 3000 and 5000.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">  FROM EMP</span><br><span class="line"> WHERE SAL BETWEEN 3000 AND 5000</span><br></pre></td></tr></table></figure><h3 id="4-Print-all-EMP-table-information-with-HIREDATE-greater-than-12-1-1981"><a href="#4-Print-all-EMP-table-information-with-HIREDATE-greater-than-12-1-1981" class="headerlink" title="4. Print all EMP table information with HIREDATE greater than 12-1-1981."></a>4. Print all EMP table information with HIREDATE greater than 12-1-1981.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">  FROM emp</span><br><span class="line"> WHERE hiredate &gt; &apos;01-DEC-81&apos;</span><br></pre></td></tr></table></figure><h3 id="5-Print-max-value-EMPNO-with-job-SALESMAN-in-EMP-table"><a href="#5-Print-max-value-EMPNO-with-job-SALESMAN-in-EMP-table" class="headerlink" title="5. Print max value EMPNO with job SALESMAN in EMP table."></a>5. Print max value EMPNO with job SALESMAN in EMP table.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT max(empno)</span><br><span class="line">  FROM emp</span><br><span class="line"> WHERE job IN &apos;SALESMAN&apos;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Oracle Database practice question 1.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Develop" scheme="http://yoursite.com/categories/Develop/"/>
+    
+      <category term="Oracle" scheme="http://yoursite.com/categories/Develop/Oracle/"/>
+    
+    
+      <category term="Oracle" scheme="http://yoursite.com/tags/Oracle/"/>
+    
+  </entry>
   
   <entry>
     <title>How to release &#39;scott&#39;user in Oracle</title>

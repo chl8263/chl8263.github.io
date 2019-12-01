@@ -4,7 +4,7 @@
 
     <sitemap>
         <loc>http://yoursite.com/post-sitemap.xml</loc>
-        <lastmod>2019-11-28T07:30:11.547Z</lastmod>
+        <lastmod>2019-12-01T08:56:09.056Z</lastmod>
     </sitemap>
 
     <sitemap>
@@ -14,12 +14,12 @@
 
     <sitemap>
         <loc>http://yoursite.com/category-sitemap.xml</loc>
-        <lastmod>2019-11-28T07:30:11.547Z</lastmod>
+        <lastmod>2019-12-01T08:56:09.056Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>http://yoursite.com/tag-sitemap.xml</loc>
-        <lastmod>2019-11-28T07:30:11.547Z</lastmod>
+        <lastmod>2019-12-01T08:56:09.056Z</lastmod>
     </sitemap>
 
 </sitemapindex>
