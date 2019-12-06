@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>Database Question 3 - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"Database Question 3\n\n\n1. Print each employee grade at EMP table as in the example below.\n123456789SELECT empno, ename, sal, CASE                            WHEN sal BETWEEN 700 AND 1200 THEN 1                            WHEN sal BETWEEN 1201 AND 1400 THEN 2                            WHEN sal BETWEEN 1401 AND 2000 THEN 3                            WHEN sal BETWEEN 2001 AND 3000 THEN 4                            WHEN sal BETWEEN 3001 AND 9999 THEN 5                            END grade  FROM emp ORDER BY grade\n\n12345SELECT empno, ename, sal, grade  FROM emp  JOIN salgrade    ON emp.sal &gt;= salgrade.losal AND emp.sal &lt;= salgrade.hisal ORDER BY grade ASC\n\n2.Print employee information which over average SAL at EMP table.\n\n123456SELECT empno, ename, job, sal  FROM EMP WHERE sal &gt; (SELECT ROUND(AVG(sal),1)               FROM emp             ) ORDER BY sal DESC\n\n3. Print employee information which over than average SAL in department at EMP table as in the example below.\n\n123456789SELECT dname, empno, ename, job, sal  FROM emp e INNER JOIN dept    ON e.deptno = dept.deptno WHERE sal &gt; ( SELECT ROUND(AVG(sal),1)                 FROM emp                WHERE emp.deptno = e.deptno             ) ORDER BY sal DESC\n\n4. Print the number of people by SAL rank for each employee at EMP table as in the example below. (Join SALGRADE table)\n\n1234567SELECT grade, losal, hisal, COUNT(*) AS cnt  FROM emp  JOIN salgrade    ON emp.sal &gt;= salgrade.losal AND emp.sal &lt;= salgrade.hisal GROUP BY grade, losal, hisal ORDER BY grade\n\n5. Print employee information which department name is ‘RESEARCH’ or department location is ‘NEW YORK’.\n\n1## 5. Print employee information which department name is &apos;RESEARCH&apos; or department location is &apos;NEW YORK&apos;.\n","dateCreated":"2019-12-01T22:35:40-08:00","dateModified":"2019-12-05T23:48:27-08:00","datePublished":"2019-12-01T22:35:40-08:00","description":"Database Question 3","headline":"Database Question 3","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2019/12/01/Database-Question-3/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2019/12/01/Database-Question-3/","keywords":"Oracle"}</script>
+    <meta name="description" content="Database Question 3">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Database Question 3">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;Database-Question-3&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="Database Question 3">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;Database-Question-3&#x2F;1.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;Database-Question-3&#x2F;2.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;Database-Question-3&#x2F;3.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;Database-Question-3&#x2F;4.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;Database-Question-3&#x2F;5.PNG">
+<meta property="og:updated_time" content="2019-12-06T07:48:27.005Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;Database-Question-3&#x2F;1.PNG">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2019/12/01/database-question-3/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            Database Question 3
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2019-12-01T22:35:40-08:00">
+	
+		    Dec 01, 2019
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/Oracle/">Oracle</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>Database Question 3</p>
+<a id="more"></a>
+
+<h3 id="1-Print-each-employee-grade-at-EMP-table-as-in-the-example-below"><a href="#1-Print-each-employee-grade-at-EMP-table-as-in-the-example-below" class="headerlink" title="1. Print each employee grade at EMP table as in the example below."></a>1. Print each employee grade at EMP table as in the example below.</h3><img src="/2019/12/01/Database-Question-3/1.PNG" class>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT empno, ename, sal, CASE</span><br><span class="line">                            WHEN sal BETWEEN 700 AND 1200 THEN 1</span><br><span class="line">                            WHEN sal BETWEEN 1201 AND 1400 THEN 2</span><br><span class="line">                            WHEN sal BETWEEN 1401 AND 2000 THEN 3</span><br><span class="line">                            WHEN sal BETWEEN 2001 AND 3000 THEN 4</span><br><span class="line">                            WHEN sal BETWEEN 3001 AND 9999 THEN 5</span><br><span class="line">                            END grade</span><br><span class="line">  FROM emp</span><br><span class="line"> ORDER BY grade</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT empno, ename, sal, grade</span><br><span class="line">  FROM emp</span><br><span class="line">  JOIN salgrade</span><br><span class="line">    ON emp.sal &gt;= salgrade.losal AND emp.sal &lt;= salgrade.hisal</span><br><span class="line"> ORDER BY grade ASC</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Print-employee-information-which-over-average-SAL-at-EMP-table"><a href="#2-Print-employee-information-which-over-average-SAL-at-EMP-table" class="headerlink" title="2.Print employee information which over average SAL at EMP table."></a>2.Print employee information which over average SAL at EMP table.</h3><img src="/2019/12/01/Database-Question-3/2.PNG" class>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT empno, ename, job, sal</span><br><span class="line">  FROM EMP</span><br><span class="line"> WHERE sal &gt; (SELECT ROUND(AVG(sal),1)</span><br><span class="line">               FROM emp</span><br><span class="line">             )</span><br><span class="line"> ORDER BY sal DESC</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Print-employee-information-which-over-than-average-SAL-in-department-at-EMP-table-as-in-the-example-below"><a href="#3-Print-employee-information-which-over-than-average-SAL-in-department-at-EMP-table-as-in-the-example-below" class="headerlink" title="3. Print employee information which over than average SAL in department at EMP table as in the example below."></a>3. Print employee information which over than average SAL in department at EMP table as in the example below.</h3><img src="/2019/12/01/Database-Question-3/3.PNG" class>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT dname, empno, ename, job, sal</span><br><span class="line">  FROM emp e</span><br><span class="line"> INNER JOIN dept</span><br><span class="line">    ON e.deptno = dept.deptno</span><br><span class="line"> WHERE sal &gt; ( SELECT ROUND(AVG(sal),1)</span><br><span class="line">                 FROM emp</span><br><span class="line">                WHERE emp.deptno = e.deptno</span><br><span class="line">             )</span><br><span class="line"> ORDER BY sal DESC</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Print-the-number-of-people-by-SAL-rank-for-each-employee-at-EMP-table-as-in-the-example-below-Join-SALGRADE-table"><a href="#4-Print-the-number-of-people-by-SAL-rank-for-each-employee-at-EMP-table-as-in-the-example-below-Join-SALGRADE-table" class="headerlink" title="4. Print the number of people by SAL rank for each employee at EMP table as in the example below. (Join SALGRADE table)"></a>4. Print the number of people by SAL rank for each employee at EMP table as in the example below. (Join SALGRADE table)</h3><img src="/2019/12/01/Database-Question-3/4.PNG" class>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">SELECT grade, losal, hisal, COUNT(*) AS cnt</span><br><span class="line">  FROM emp</span><br><span class="line">  JOIN salgrade</span><br><span class="line">    ON emp.sal &gt;= salgrade.losal AND emp.sal &lt;= salgrade.hisal</span><br><span class="line"> GROUP BY grade, losal, hisal</span><br><span class="line"> ORDER BY grade</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-Print-employee-information-which-department-name-is-‘RESEARCH’-or-department-location-is-‘NEW-YORK’"><a href="#5-Print-employee-information-which-department-name-is-‘RESEARCH’-or-department-location-is-‘NEW-YORK’" class="headerlink" title="5. Print employee information which department name is ‘RESEARCH’ or department location is ‘NEW YORK’."></a>5. Print employee information which department name is ‘RESEARCH’ or department location is ‘NEW YORK’.</h3><img src="/2019/12/01/Database-Question-3/5.PNG" class>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 5. Print employee information which department name is &apos;RESEARCH&apos; or department location is &apos;NEW YORK&apos;.</span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Oracle/" rel="tag">Oracle</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/01/Database-Question-2/" data-tooltip="Database Question 2" aria-label="NEXT: Database Question 2">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/01/Database-Question-3/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/01/Database-Question-3/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/01/Database-Question-3/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2019 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/01/Database-Question-2/" data-tooltip="Database Question 2" aria-label="NEXT: Database Question 2">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/01/Database-Question-3/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/01/Database-Question-3/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/01/Database-Question-3/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/01/Database-Question-3/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/01/Database-Question-3/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/01/Database-Question-3/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

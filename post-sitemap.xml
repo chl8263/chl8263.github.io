@@ -8,8 +8,24 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/12/01/Database-Question-3/</loc>
+        <lastmod>2019-12-06T07:48:27.005Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2019/11/29/Database-Question-1/</loc>
-        <lastmod>2019-12-01T08:56:09.056Z</lastmod>
+        <lastmod>2019-12-06T03:23:23.858Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/12/01/Database-Question-2/</loc>
+        <lastmod>2019-12-06T03:23:15.001Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
