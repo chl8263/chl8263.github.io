@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-06T07:48:27.005Z</updated>
+  <updated>2019-12-06T21:16:47.302Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Database Question 4</title>
+    <link href="http://yoursite.com/2019/12/05/Database-Question-4/"/>
+    <id>http://yoursite.com/2019/12/05/Database-Question-4/</id>
+    <published>2019-12-06T07:50:47.000Z</published>
+    <updated>2019-12-06T21:16:47.302Z</updated>
+    
+    <content type="html"><![CDATA[<p>Database Question 4</p><a id="more"></a><h3 id="1-Print-number-of-5-employee-in-high-order-of-SAL-at-EMP-table-in-the-example-below"><a href="#1-Print-number-of-5-employee-in-high-order-of-SAL-at-EMP-table-in-the-example-below" class="headerlink" title="1. Print number of 5 employee in high order of SAL at EMP table in the example below."></a>1. Print number of 5 employee in high order of SAL at EMP table in the example below.</h3><img src="/2019/12/05/Database-Question-4/1.PNG" class><h3 id="2-When-each-employee-ranks-in-the-SAL-order-in-the-EMP-table-print-the-ranks-6th-to-10th-as-in-the-example-below"><a href="#2-When-each-employee-ranks-in-the-SAL-order-in-the-EMP-table-print-the-ranks-6th-to-10th-as-in-the-example-below" class="headerlink" title="2. When each employee ranks in the SAL order in the EMP table, print the ranks 6th to 10th as in the example below."></a>2. When each employee ranks in the SAL order in the EMP table, print the ranks 6th to 10th as in the example below.</h3><img src="/2019/12/05/Database-Question-4/2.PNG" class><h3 id="3-Explain-why-the-result-which-in-the-example-below-is-0-matches"><a href="#3-Explain-why-the-result-which-in-the-example-below-is-0-matches" class="headerlink" title="3. Explain why the result which in the example below is 0 matches."></a>3. Explain why the result which in the example below is 0 matches.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROWNUM, A.*</span><br><span class="line">  FROM EMP A</span><br><span class="line"> WHERE ROWNUM &gt; 5</span><br></pre></td></tr></table></figure><h3 id="4-Print-example-which-in-the-vertical-example-to-horizontal-example-below"><a href="#4-Print-example-which-in-the-vertical-example-to-horizontal-example-below" class="headerlink" title="4. Print example which in the vertical example to horizontal example below."></a>4. Print example which in the vertical example to horizontal example below.</h3><img src="/2019/12/05/Database-Question-4/4.PNG" class><h3 id="5-First-make-SALGRADE-TEMP-table-as-example-below-Print-example-which-in-the-horizontal-example-to-vertical-example-below"><a href="#5-First-make-SALGRADE-TEMP-table-as-example-below-Print-example-which-in-the-horizontal-example-to-vertical-example-below" class="headerlink" title="5. First, make SALGRADE_TEMP table as example below, Print example which in the horizontal example to vertical example below."></a>5. First, make SALGRADE_TEMP table as example below, Print example which in the horizontal example to vertical example below.</h3><img src="/2019/12/05/Database-Question-4/5.PNG" class>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Database Question 4&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Develop" scheme="http://yoursite.com/categories/Develop/"/>
+    
+      <category term="Oracle" scheme="http://yoursite.com/categories/Develop/Oracle/"/>
+    
+    
+      <category term="Oracle" scheme="http://yoursite.com/tags/Oracle/"/>
+    
+  </entry>
   
   <entry>
     <title>Database Question 3</title>
