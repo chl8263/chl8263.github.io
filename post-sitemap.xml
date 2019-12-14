@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/</loc>
+        <lastmod>2019-12-14T05:58:52.450Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2019/12/09/Database-Question-5/</loc>
         <lastmod>2019-12-09T08:35:59.440Z</lastmod>
         <changefreq>weekly</changefreq>

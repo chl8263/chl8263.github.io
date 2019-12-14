@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>Functional Programing with ES6 - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"Functional programming is paradigm for successful programming.\n\n\nConcepts of functional programming\nPure functions\nRecursion\nReferential transparency\nFunctions are First-Class and can be Higher-Order\nVariables are Immutable\n\nPure function1234function add(a, b)&#123;  return a + b;&#125;console.log(5, 10);\n\nFirst, the above example is pure function, this is because giving the same arguments returns the same values.\nAnd this function have no side effects.\nThe example below is not a pure function.\n12345678let c = 10;function add2 (a, b)&#123;    return a + b +c;&#125;console.log(add2(10, 20));c = 20;console.log(add2(10, 20));\n\nBecause this function refer to variable ‘c’, so this function can change return value when ‘c’ value changes.\nHow can make functional programming of above example?\n123456789const obj = &#123;  number : 10&#125;function add (obj, something)&#123;  return obj.number + something;&#125;console.log(add(obj, 3));\n\nIn the above example, function ‘add’ return value using ‘obj’ reference.This example doesn’t change directly other value, just reference object.\nFunctions are First-ClassFirst-class function are treated as first-class variable.Thr first class variables can be passed to function as parameter, can be returned from function return value.\nIf execute example below.\n12const f1 = function(a)&#123; return a * a;&#125;console.log(f1);\n\nResult as below.\n1ƒ (a)&#123; return a * a;&#125;\n\nThe important point here is some value can has function as value.\nThe example which in below show how can use to function in parameter.\n12345function fun(parameter)&#123;  return parameter();&#125;console.log( fun(function () &#123;return 10;&#125;) );\n\nVariables are Immutable In functional programming, we can’t modify a variable after it’s been initialized. We can create new variables – but we can’t modify existing variables, and this really helps to maintain state throughout the runtime of a program. Once we create a variable and set its value, we can have full confidence knowing that the value of that variable will never change.\nAdvantages and Disadvantages of Functional programming\nAdvantages\n\n\nPure functions are easier to understand because they don’t change any states and depend only on the input given to them. Whatever output they produce is the return value they give. Their function signature gives all the information about them i.e. their return type and their arguments.\nThe ability of functional programming languages to treat functions as values and pass them to functions as parameters make the code more readable and easily understandable.Testing and debugging is easier. Since pure functions take only arguments and produce output, they don’t produce any changes don’t take input or produce some hidden output. They use immutable values, so it becomes easier to check some problems in programs written uses pure functions.\nIt is used to implement concurrency/parallelism because pure functions don’t change variables or any other data outside of it.It adopts lazy evaluation which avoids repeated evaluation because the value is evaluated and stored only when it is needed.\n\n\nDisadvantages\n\n\nSometimes writing pure functions can reduce the readability of code.Writing programs in recursive style instead of using loops can be bit intimidating.\nWriting pure functions are easy but combining them with rest of application and I/O operations is the difficult task.Immutable values and recursion can lead to decrease in performance.\n\n\n\n\n\n","dateCreated":"2019-12-11T23:25:32-08:00","dateModified":"2019-12-13T21:58:52-08:00","datePublished":"2019-12-11T23:25:32-08:00","description":"Functional programming is paradigm for successful programming.","headline":"Functional Programing with ES6","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/","keywords":"javascript"}</script>
+    <meta name="description" content="Functional programming is paradigm for successful programming.">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Functional Programing with ES6">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;11&#x2F;Functional-Programing-with-ES6&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="Functional programming is paradigm for successful programming.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-14T05:58:52.450Z">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2019/12/11/functional-programing-with-es6/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            Functional Programing with ES6
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2019-12-11T23:25:32-08:00">
+	
+		    Dec 11, 2019
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/es6/">es6</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>Functional programming is paradigm for successful programming.</p>
+<a id="more"></a>
+
+<h2 id="Concepts-of-functional-programming"><a href="#Concepts-of-functional-programming" class="headerlink" title="Concepts of functional programming"></a>Concepts of functional programming</h2><ul>
+<li>Pure functions</li>
+<li>Recursion</li>
+<li>Referential transparency</li>
+<li>Functions are First-Class and can be Higher-Order</li>
+<li>Variables are Immutable</li>
+</ul>
+<h3 id="Pure-function"><a href="#Pure-function" class="headerlink" title="Pure function"></a>Pure function</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">5</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<p>First, the above example is pure function, this is because giving the same arguments returns the same values.</p>
+<p>And this function have no side effects.</p>
+<p>The example below is not a pure function.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> c = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add2</span> (<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b +c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(add2(<span class="number">10</span>, <span class="number">20</span>));</span><br><span class="line">c = <span class="number">20</span>;</span><br><span class="line"><span class="built_in">console</span>.log(add2(<span class="number">10</span>, <span class="number">20</span>));</span><br></pre></td></tr></table></figure>
+
+<p>Because this function refer to variable ‘c’, so this function can change return value when ‘c’ value changes.</p>
+<p>How can make functional programming of above example?</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  number : <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span> (<span class="params">obj, something</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> obj.number + something;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(add(obj, <span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+
+<p>In the above example, function ‘add’ return value using ‘obj’ reference.<br>This example doesn’t change directly other value, just reference object.</p>
+<h3 id="Functions-are-First-Class"><a href="#Functions-are-First-Class" class="headerlink" title="Functions are First-Class"></a>Functions are First-Class</h3><p>First-class function are treated as first-class variable.<br>Thr first class variables can be passed to function as parameter, can be returned from function return value.</p>
+<p>If execute example below.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> f1 = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123; <span class="keyword">return</span> a * a;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(f1);</span><br></pre></td></tr></table></figure>
+
+<p>Result as below.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ƒ (a)&#123; <span class="keyword">return</span> a * a;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The important point here is some value can has function as value.</p>
+<p>The example which in below show how can use to function in parameter.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">parameter</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> parameter();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( fun(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="keyword">return</span> <span class="number">10</span>;&#125;) );</span><br></pre></td></tr></table></figure>
+
+<h3 id="Variables-are-Immutable"><a href="#Variables-are-Immutable" class="headerlink" title="Variables are Immutable"></a>Variables are Immutable</h3><p> In functional programming, we can’t modify a variable after it’s been initialized. We can create new variables – but we can’t modify existing variables, and this really helps to maintain state throughout the runtime of a program. Once we create a variable and set its value, we can have full confidence knowing that the value of that variable will never change.</p>
+<h3 id="Advantages-and-Disadvantages-of-Functional-programming"><a href="#Advantages-and-Disadvantages-of-Functional-programming" class="headerlink" title="Advantages and Disadvantages of Functional programming"></a>Advantages and Disadvantages of Functional programming</h3><ul>
+<li>Advantages</li>
+</ul>
+<ol>
+<li>Pure functions are easier to understand because they don’t change any states and depend only on the input given to them. Whatever output they produce is the return value they give. Their function signature gives all the information about them i.e. their return type and their arguments.</li>
+<li>The ability of functional programming languages to treat functions as values and pass them to functions as parameters make the code more readable and easily understandable.<br>Testing and debugging is easier. Since pure functions take only arguments and produce output, they don’t produce any changes don’t take input or produce some hidden output. They use immutable values, so it becomes easier to check some problems in programs written uses pure functions.</li>
+<li>It is used to implement concurrency/parallelism because pure functions don’t change variables or any other data outside of it.<br>It adopts lazy evaluation which avoids repeated evaluation because the value is evaluated and stored only when it is needed.</li>
+</ol>
+<ul>
+<li>Disadvantages</li>
+</ul>
+<ol>
+<li>Sometimes writing pure functions can reduce the readability of code.<br>Writing programs in recursive style instead of using loops can be bit intimidating.</li>
+<li>Writing pure functions are easy but combining them with rest of application and I/O operations is the difficult task.<br>Immutable values and recursion can lead to decrease in performance.</li>
+</ol>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/javascript/" rel="tag">javascript</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/09/Database-Question-5/" data-tooltip="Database Question 5" aria-label="NEXT: Database Question 5">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2019 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/09/Database-Question-5/" data-tooltip="Database Question 5" aria-label="NEXT: Database Question 5">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>
