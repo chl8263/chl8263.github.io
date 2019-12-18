@@ -8,15 +8,22 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/Develop/es6/</loc>
-        <lastmod>2019-12-14T05:58:52.450Z</lastmod>
+        <loc>http://yoursite.com/categories/Develop/Algorithm/</loc>
+        <lastmod>2019-12-18T07:39:45.980Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/categories/Develop/</loc>
-        <lastmod>2019-12-14T05:58:52.450Z</lastmod>
+        <lastmod>2019-12-18T07:39:45.980Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/categories/Develop/es6/</loc>
+        <lastmod>2019-12-14T06:00:19.812Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

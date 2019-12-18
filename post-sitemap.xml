@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2019/12/17/Algorithm-Seattle-Hackers-December/</loc>
+        <lastmod>2019-12-18T07:39:45.980Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/</loc>
-        <lastmod>2019-12-14T05:58:52.450Z</lastmod>
+        <lastmod>2019-12-14T06:00:19.812Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
