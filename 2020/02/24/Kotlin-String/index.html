@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>Kotlin String - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"Summarize of Kotlin String.\n\n3. String1. String EqualityString are compared with == operator with check for their structural equality.\n123val str1 = \"Hello, World\"val str2 = \"Hello,\" + \" World\"println(str1 == st2)    // print true\n\nReferential equality is checked with === operator.\n1234567891011val str1 = \"\"\" |Hello, World! \"\"\".trimMargin()val str2 = \"\"\" #Hello, World! \"\"\".trimMargin(\"#\")val str3 = str1println(str1 == str2) // Prints trueprintln(str1 === str2) // Prints falseprintln(str1 === str3) // Prints true\n\n2. String LiteralsKotlin has two types of string literals:\n\nEscaped string\nRaw string\n\nEscaped string handles special characters by escaping them. The following escape sequences are supported: \\t, \\b, \\n, \\r, \\&#39;, \\&quot;, \\\\ \\$, also use Unicode \\uFF00.\n12345678val a = \"Hello \\n Hello\"val b = \"Hello \\t Hello\"val c = \"Hello \\b Hello\"val d = \"Hello \\r Hello\"val e = \"Hello \\' Hello\"val f = \"Hello \\\" Hello\"val g = \"Hello \\\\ Hello\"val h = \"Hello \\$ Hello\"\n\nThe result is like below.\n123456789Hello HelloHello \t HelloHello Hello HelloHello &apos; HelloHello &quot; HelloHello \\ HelloHello $ Hello\n\nRaw string delimited by &quot;&quot;&quot;&quot;.\n1234val text = \"\"\" for (c in \"foo\") print(c)\"\"\"\n\nLeading whitespace can be removed with trimMargin() function.\n123456val text = \"\"\" |Tell me and I forget. |Teach me and I remember. |Involve me and I learn. |(Benjamin Franklin) \"\"\".trimMargin()\n\n3. Elements of StringElement of String are characters that can be accessed by the indexing operation string[index].\n12val str = \"Hello, World!\"println(str[1])\n\nString elements can be iterated with a for loop.\n123for(x in str)&#123;    println(x)&#125;\n\n4. String TemplatesString template starts with a dollar sign $ and consists of either a variable name:Or an arbitrary expression in curly braces:\n12345val i = 10val s = \"i = $i\"val a = \"abc\"val str = \"$a.length is $&#123;a.length&#125;\" // \"abc.length is 3\"\n","dateCreated":"2020-02-24T23:54:30-08:00","dateModified":"2020-02-24T23:55:00-08:00","datePublished":"2020-02-24T23:54:30-08:00","description":"Summarize of Kotlin String.","headline":"Kotlin String","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/02/24/Kotlin-String/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2020/02/24/Kotlin-String/","keywords":"Kotlin"}</script>
+    <meta name="description" content="Summarize of Kotlin String.">
+<meta name="keywords" content="Kotlin">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Kotlin String">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;Kotlin-String&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="Summarize of Kotlin String.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-25T07:55:00.773Z">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2020/02/24/kotlin-string/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            Kotlin String
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-02-24T23:54:30-08:00">
+	
+		    Feb 24, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/Kotlin/">Kotlin</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>Summarize of Kotlin String.</p>
+<a id="more"></a>
+<h2 id="3-String"><a href="#3-String" class="headerlink" title="3. String"></a>3. String</h2><h4 id="1-String-Equality"><a href="#1-String-Equality" class="headerlink" title="1. String Equality"></a>1. String Equality</h4><p>String are compared with == operator with check for their structural equality.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> str1 = <span class="string">"Hello, World"</span></span><br><span class="line"><span class="keyword">val</span> str2 = <span class="string">"Hello,"</span> + <span class="string">" World"</span></span><br><span class="line">println(str1 == st2)    <span class="comment">// print true</span></span><br></pre></td></tr></table></figure>
+
+<p>Referential equality is checked with <code>===</code> operator.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> str1 = <span class="string">"""</span></span><br><span class="line"><span class="string"> |Hello, World!</span></span><br><span class="line"><span class="string"> """</span>.trimMargin()</span><br><span class="line"><span class="keyword">val</span> str2 = <span class="string">"""</span></span><br><span class="line"><span class="string"> #Hello, World!</span></span><br><span class="line"><span class="string"> """</span>.trimMargin(<span class="string">"#"</span>)</span><br><span class="line"><span class="keyword">val</span> str3 = str1</span><br><span class="line"></span><br><span class="line">println(str1 == str2) <span class="comment">// Prints true</span></span><br><span class="line">println(str1 === str2) <span class="comment">// Prints false</span></span><br><span class="line">println(str1 === str3) <span class="comment">// Prints true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-String-Literals"><a href="#2-String-Literals" class="headerlink" title="2. String Literals"></a>2. String Literals</h4><p>Kotlin has two types of string literals:</p>
+<ul>
+<li>Escaped string</li>
+<li>Raw string</li>
+</ul>
+<p><strong>Escaped string</strong> handles special characters by escaping them. The following escape sequences are supported: <code>\t, \b, \n, \r, \&#39;, \&quot;, \\ \$</code>, also use Unicode <code>\uFF00</code>.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a = <span class="string">"Hello \n Hello"</span></span><br><span class="line"><span class="keyword">val</span> b = <span class="string">"Hello \t Hello"</span></span><br><span class="line"><span class="keyword">val</span> c = <span class="string">"Hello \b Hello"</span></span><br><span class="line"><span class="keyword">val</span> d = <span class="string">"Hello \r Hello"</span></span><br><span class="line"><span class="keyword">val</span> e = <span class="string">"Hello \' Hello"</span></span><br><span class="line"><span class="keyword">val</span> f = <span class="string">"Hello \" Hello"</span></span><br><span class="line"><span class="keyword">val</span> g = <span class="string">"Hello \\ Hello"</span></span><br><span class="line"><span class="keyword">val</span> h = <span class="string">"Hello \$ Hello"</span></span><br></pre></td></tr></table></figure>
+
+<p>The result is like below.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Hello</span><br><span class="line"> Hello</span><br><span class="line">Hello 	 Hello</span><br><span class="line">Hello Hello</span><br><span class="line"> Hello</span><br><span class="line">Hello &apos; Hello</span><br><span class="line">Hello &quot; Hello</span><br><span class="line">Hello \ Hello</span><br><span class="line">Hello $ Hello</span><br></pre></td></tr></table></figure>
+
+<p><strong>Raw string</strong> delimited by <code>&quot;&quot;&quot;&quot;</code>.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> text = <span class="string">"""</span></span><br><span class="line"><span class="string"> for (c in "foo")</span></span><br><span class="line"><span class="string"> print(c)</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+
+<p>Leading whitespace can be removed with trimMargin() function.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> text = <span class="string">"""</span></span><br><span class="line"><span class="string"> |Tell me and I forget.</span></span><br><span class="line"><span class="string"> |Teach me and I remember.</span></span><br><span class="line"><span class="string"> |Involve me and I learn.</span></span><br><span class="line"><span class="string"> |(Benjamin Franklin)</span></span><br><span class="line"><span class="string"> """</span>.trimMargin()</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-Elements-of-String"><a href="#3-Elements-of-String" class="headerlink" title="3. Elements of String"></a>3. Elements of String</h4><p>Element of String are characters that can be accessed by the indexing operation string[index].</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> str = <span class="string">"Hello, World!"</span></span><br><span class="line">println(str[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<p>String elements can be iterated with a for loop.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(x <span class="keyword">in</span> str)&#123;</span><br><span class="line">    println(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-String-Templates"><a href="#4-String-Templates" class="headerlink" title="4. String Templates"></a>4. String Templates</h4><p>String template starts with a dollar sign $ and consists of either a variable name:<br>Or an arbitrary expression in curly braces:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> i = <span class="number">10</span></span><br><span class="line"><span class="keyword">val</span> s = <span class="string">"i = <span class="variable">$i</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> a = <span class="string">"abc"</span></span><br><span class="line"><span class="keyword">val</span> str = <span class="string">"<span class="variable">$a</span>.length is <span class="subst">$&#123;a.length&#125;</span>"</span> <span class="comment">// "abc.length is 3"</span></span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Kotlin/" rel="tag">Kotlin</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Kotlin-Collection/" data-tooltip="Kotlin Collection" aria-label="PREVIOUS: Kotlin Collection">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Kotlin-Arrays/" data-tooltip="Kotlin Arrays" aria-label="NEXT: Kotlin Arrays">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/Kotlin-String/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/Kotlin-String/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/Kotlin-String/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Kotlin-Collection/" data-tooltip="Kotlin Collection" aria-label="PREVIOUS: Kotlin Collection">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Kotlin-Arrays/" data-tooltip="Kotlin Arrays" aria-label="NEXT: Kotlin Arrays">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/Kotlin-String/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/Kotlin-String/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/Kotlin-String/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/Kotlin-String/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/Kotlin-String/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/Kotlin-String/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>Univera in Seattle</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>UNIVERA</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

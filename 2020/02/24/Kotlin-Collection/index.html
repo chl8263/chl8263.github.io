@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>Kotlin Collection - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"Summarize of Kotlin Collection\n\n5. CollectionsUnlike many language, Kotlin distinguishes between mutable and immutable collections.Precise control over exactly when collections can be edited is useful for eliminating bugs, and designing good APIs.\n1. Using list1234567//Create a new read-only List&lt;String&gt;val list = listOf(\"Item1\", \"Item2\", \"Item3\")list.add(\"Item4\")   // compile error//Create a new editable List&lt;String&gt;val list2 = mutableListOf(\"Item1\", \"Item2\", \"Item3\")list2.add(\"Item4\")\n\n2. Using map12345//Read-onlyval map = mapOf(Pair(1, \"Item1\"), Pair(2, \"Item2\"), Pair(3, \"Item3\"))//Editableval map2 = mutableMapOf(Pair(1, \"Item1\"), Pair(2, \"Item2\"), Pair(3, \"Item3\"))\n\n3. Using set12345//Read-onlyval set = setOf(1, 3, 5)//Editableval set2 = mutableSetOf(1, 3, 5)\n.\n\n\n5. CollectionsUnlike many language, Kotlin distinguishes between mutable and immutable collections.Precise control over exactly when collections can be edited is useful for eliminating bugs, and designing good APIs.\n1. Using list1234567//Create a new read-only List&lt;String&gt;val list = listOf(\"Item1\", \"Item2\", \"Item3\")list.add(\"Item4\")   // compile error//Create a new editable List&lt;String&gt;val list2 = mutableListOf(\"Item1\", \"Item2\", \"Item3\")list2.add(\"Item4\")\n\n2. Using map12345//Read-onlyval map = mapOf(Pair(1, \"Item1\"), Pair(2, \"Item2\"), Pair(3, \"Item3\"))//Editableval map2 = mutableMapOf(Pair(1, \"Item1\"), Pair(2, \"Item2\"), Pair(3, \"Item3\"))\n\n3. Using set12345//Read-onlyval set = setOf(1, 3, 5)//Editableval set2 = mutableSetOf(1, 3, 5)\n","dateCreated":"2020-02-24T23:55:24-08:00","dateModified":"2020-02-24T23:56:08-08:00","datePublished":"2020-02-24T23:55:24-08:00","description":"Summarize of Kotlin Collection","headline":"Kotlin Collection","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/02/24/Kotlin-Collection/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2020/02/24/Kotlin-Collection/","keywords":"Kotlin"}</script>
+    <meta name="description" content="Summarize of Kotlin Collection">
+<meta name="keywords" content="Kotlin">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Kotlin Collection">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;Kotlin-Collection&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="Summarize of Kotlin Collection">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-25T07:56:08.934Z">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2020/02/24/kotlin-collection/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            Kotlin Collection
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-02-24T23:55:24-08:00">
+	
+		    Feb 24, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/Kotlin/">Kotlin</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>Summarize of Kotlin Collection</p>
+<a id="more"></a>
+<h2 id="5-Collections"><a href="#5-Collections" class="headerlink" title="5. Collections"></a>5. Collections</h2><p>Unlike many language, Kotlin distinguishes between mutable and immutable collections.<br>Precise control over exactly when collections can be edited is useful for eliminating bugs, and designing good APIs.</p>
+<h4 id="1-Using-list"><a href="#1-Using-list" class="headerlink" title="1. Using list"></a>1. Using list</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Create a new read-only List&lt;String&gt;</span></span><br><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">"Item1"</span>, <span class="string">"Item2"</span>, <span class="string">"Item3"</span>)</span><br><span class="line">list.add(<span class="string">"Item4"</span>)   <span class="comment">// compile error</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Create a new editable List&lt;String&gt;</span></span><br><span class="line"><span class="keyword">val</span> list2 = mutableListOf(<span class="string">"Item1"</span>, <span class="string">"Item2"</span>, <span class="string">"Item3"</span>)</span><br><span class="line">list2.add(<span class="string">"Item4"</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Using-map"><a href="#2-Using-map" class="headerlink" title="2. Using map"></a>2. Using map</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Read-only</span></span><br><span class="line"><span class="keyword">val</span> map = mapOf(Pair(<span class="number">1</span>, <span class="string">"Item1"</span>), Pair(<span class="number">2</span>, <span class="string">"Item2"</span>), Pair(<span class="number">3</span>, <span class="string">"Item3"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">//Editable</span></span><br><span class="line"><span class="keyword">val</span> map2 = mutableMapOf(Pair(<span class="number">1</span>, <span class="string">"Item1"</span>), Pair(<span class="number">2</span>, <span class="string">"Item2"</span>), Pair(<span class="number">3</span>, <span class="string">"Item3"</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-Using-set"><a href="#3-Using-set" class="headerlink" title="3. Using set"></a>3. Using set</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Read-only</span></span><br><span class="line"><span class="keyword">val</span> <span class="keyword">set</span> = setOf(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//Editable</span></span><br><span class="line"><span class="keyword">val</span> set2 = mutableSetOf(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p>.</p>
+<!-- more -->
+
+<h2 id="5-Collections-1"><a href="#5-Collections-1" class="headerlink" title="5. Collections"></a>5. Collections</h2><p>Unlike many language, Kotlin distinguishes between mutable and immutable collections.<br>Precise control over exactly when collections can be edited is useful for eliminating bugs, and designing good APIs.</p>
+<h4 id="1-Using-list-1"><a href="#1-Using-list-1" class="headerlink" title="1. Using list"></a>1. Using list</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Create a new read-only List&lt;String&gt;</span></span><br><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">"Item1"</span>, <span class="string">"Item2"</span>, <span class="string">"Item3"</span>)</span><br><span class="line">list.add(<span class="string">"Item4"</span>)   <span class="comment">// compile error</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Create a new editable List&lt;String&gt;</span></span><br><span class="line"><span class="keyword">val</span> list2 = mutableListOf(<span class="string">"Item1"</span>, <span class="string">"Item2"</span>, <span class="string">"Item3"</span>)</span><br><span class="line">list2.add(<span class="string">"Item4"</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Using-map-1"><a href="#2-Using-map-1" class="headerlink" title="2. Using map"></a>2. Using map</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Read-only</span></span><br><span class="line"><span class="keyword">val</span> map = mapOf(Pair(<span class="number">1</span>, <span class="string">"Item1"</span>), Pair(<span class="number">2</span>, <span class="string">"Item2"</span>), Pair(<span class="number">3</span>, <span class="string">"Item3"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">//Editable</span></span><br><span class="line"><span class="keyword">val</span> map2 = mutableMapOf(Pair(<span class="number">1</span>, <span class="string">"Item1"</span>), Pair(<span class="number">2</span>, <span class="string">"Item2"</span>), Pair(<span class="number">3</span>, <span class="string">"Item3"</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-Using-set-1"><a href="#3-Using-set-1" class="headerlink" title="3. Using set"></a>3. Using set</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Read-only</span></span><br><span class="line"><span class="keyword">val</span> <span class="keyword">set</span> = setOf(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//Editable</span></span><br><span class="line"><span class="keyword">val</span> set2 = mutableSetOf(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Kotlin/" rel="tag">Kotlin</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Kotlin-Enum/" data-tooltip="Kotlin Enum" aria-label="PREVIOUS: Kotlin Enum">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Kotlin-String/" data-tooltip="Kotlin String" aria-label="NEXT: Kotlin String">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/Kotlin-Collection/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/Kotlin-Collection/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/Kotlin-Collection/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Kotlin-Enum/" data-tooltip="Kotlin Enum" aria-label="PREVIOUS: Kotlin Enum">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Kotlin-String/" data-tooltip="Kotlin String" aria-label="NEXT: Kotlin String">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/Kotlin-Collection/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/Kotlin-Collection/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/Kotlin-Collection/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/Kotlin-Collection/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/Kotlin-Collection/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/Kotlin-Collection/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>Univera in Seattle</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>UNIVERA</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

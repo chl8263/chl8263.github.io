@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>SpringBoot Manage Dependency - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"How configure spring dependency?\n\n\n\nSpring boot is managed dependency base on spring-boot-starter-parent in pom.xml if using maven.\n1234567891011121314&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;    &lt;parent&gt;        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;        &lt;version&gt;2.3.0.M1&lt;/version&gt;        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;    &lt;/parent&gt;    &lt;groupId&gt;com.example&lt;/groupId&gt;    &lt;artifactId&gt;demo&lt;/artifactId&gt;    .........\n\nWhen click spring-boot-dependencies, can see real managed dependency configure.\n1234567891011121314&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;  &lt;parent&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;    &lt;version&gt;2.3.0.M1&lt;/version&gt;  &lt;/parent&gt;  &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;  &lt;packaging&gt;pom&lt;/packaging&gt;  &lt;description&gt;Parent pom providing dependency and plugin management for applications built with Maven&lt;/description&gt;  &lt;properties&gt;    .........\n\n123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;  &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;  &lt;version&gt;2.3.0.M1&lt;/version&gt;  &lt;packaging&gt;pom&lt;/packaging&gt;  &lt;description&gt;Spring Boot Dependencies&lt;/description&gt;  &lt;url&gt;https://projects.spring.io/spring-boot/#&lt;/url&gt;  &lt;organization&gt;    &lt;name&gt;Pivotal Software, Inc.&lt;/name&gt;    &lt;url&gt;https://spring.io&lt;/url&gt;  &lt;/organization&gt;  &lt;licenses&gt;    &lt;license&gt;      &lt;name&gt;Apache License, Version 2.0&lt;/name&gt;      &lt;url&gt;http://www.apache.org/licenses/LICENSE-2.0&lt;/url&gt;    &lt;/license&gt;  &lt;/licenses&gt;  &lt;developers&gt;    &lt;developer&gt;      &lt;name&gt;Pivotal&lt;/name&gt;      &lt;email&gt;info@pivotal.io&lt;/email&gt;      &lt;organization&gt;Pivotal Software, Inc.&lt;/organization&gt;      &lt;organizationUrl&gt;https://www.spring.io&lt;/organizationUrl&gt;    &lt;/developer&gt;  &lt;/developers&gt;  &lt;scm&gt;    &lt;connection&gt;scm:git:git://github.com/spring-projects/spring-boot.git&lt;/connection&gt;    &lt;developerConnection&gt;scm:git:ssh://git@github.com/spring-projects/spring-boot.git&lt;/developerConnection&gt;    &lt;url&gt;https://github.com/spring-projects/spring-boot&lt;/url&gt;  &lt;/scm&gt;  &lt;issueManagement&gt;    &lt;system&gt;GitHub&lt;/system&gt;    &lt;url&gt;https://github.com/spring-projects/spring-boot/issues&lt;/url&gt;  &lt;/issueManagement&gt;  &lt;properties&gt;    &lt;activemq.version&gt;5.15.11&lt;/activemq.version&gt;    &lt;antlr2.version&gt;2.7.7&lt;/antlr2.version&gt;    &lt;appengine-sdk.version&gt;1.9.77&lt;/appengine-sdk.version&gt;    &lt;artemis.version&gt;2.10.1&lt;/artemis.version&gt;    &lt;aspectj.version&gt;1.9.5&lt;/aspectj.version&gt;    &lt;assertj.version&gt;3.14.0&lt;/assertj.version&gt;    &lt;atomikos.version&gt;4.0.6&lt;/atomikos.version&gt;    &lt;awaitility.version&gt;4.0.1&lt;/awaitility.version&gt;    &lt;bitronix.version&gt;2.1.4&lt;/bitronix.version&gt;    &lt;build-helper-maven-plugin.version&gt;3.0.0&lt;/build-helper-maven-plugin.version&gt;    &lt;byte-buddy.version&gt;1.10.4&lt;/byte-buddy.version&gt;    &lt;caffeine.version&gt;2.8.0&lt;/caffeine.version&gt;    .........\n\n&lt;parent&gt; in pom.xml takes care of dependency management super well and Spring Boot recommend use &lt;parent&gt;.\nIf want custom own dependency configure without &lt;parent&gt; tag, can use &lt;dependencyManagement&gt; like below coed.   \n123456789101112&lt;dependencyManagement&gt;    &lt;dependencies&gt;        &lt;dependency&gt;            &lt;!-- Import dependency management from Spring Boot --&gt;            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;            &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;            &lt;version&gt;2.2.4.RELEASE&lt;/version&gt;            &lt;type&gt;pom&lt;/type&gt;            &lt;scope&gt;import&lt;/scope&gt;        &lt;/dependency&gt;    &lt;/dependencies&gt;&lt;/dependencyManagement&gt;\n\n\nIf want add other dependency, just write dependency code in &lt;dependencies&gt; at pom.xml.\n123456789101112131415161718192021&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;    &lt;parent&gt;        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;        &lt;version&gt;2.3.0.M1&lt;/version&gt;        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;    &lt;/parent&gt;       .........    &lt;dependencies&gt;        &lt;!-- modelmapper --&gt;        &lt;dependency&gt;            &lt;groupId&gt;org.modelmapper&lt;/groupId&gt;            &lt;artifactId&gt;modelmapper&lt;/artifactId&gt;            &lt;version&gt;2.3.6&lt;/version&gt;        &lt;/dependency&gt;\n\n\n1234567891011121314151617181920212223242526272829303132333435363738394041424344454647gyun@always MINGW64 ~/IdeaProjects/Spring-exe (master)$ lsdocument/  HELP.md  mvnw*  mvnw.cmd  pom.xml  README.md  Spring-exe.iml  src/  target/  tomcat.8080/  tomcat.9090/gyun@always MINGW64 ~/IdeaProjects/Spring-exe (master)$ keytool -genkey -alias tomcat -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 4000Enter keystore password:Re-enter new password:What is your first and last name?  [Unknown]:  Ewan choiWhat is the name of your organizational unit?  [Unknown]:  EwanWhat is the name of your organization?  [Unknown]:  CEOWhat is the name of your City or Locality?  [Unknown]:  SEATTLEWhat is the name of your State or Province?  [Unknown]:  WAWhat is the two-letter country code for this unit?  [Unknown]:  yesIs CN=Ewan choi, OU=Ewan, O=CEO, L=SEATTLE, ST=WA, C=yes correct?  [no]:  yesgyun@always MINGW64 ~/IdeaProjects/Spring-exe (master)$ lsdocument/  HELP.md  keystore.p12  mvnw*  mvnw.cmd  pom.xml  README.md  Spring-exe.iml  src/  target/  tomcat.8080/  tomcat.9090/gyun@always MINGW64 ~/IdeaProjects/Spring-exe (master)$ curl - I --http http://localhost:8080curl: option -: is unknowncurl: try &apos;curl --help&apos; or &apos;curl --manual&apos; for more informationgyun@always MINGW64 ~/IdeaProjects/Spring-exe (master)$ curl -I --http http://localhost:8080curl: option --http: is ambiguouscurl: try &apos;curl --help&apos; or &apos;curl --manual&apos; for more informationgyun@always MINGW64 ~/IdeaProjects/Spring-exe (master)$ curl -I --http2 http://localhost:8080HTTP/1.1 404Vary: OriginVary: Access-Control-Request-MethodVary: Access-Control-Request-HeadersContent-Type: application/jsonTransfer-Encoding: chunkedDate: Thu, 13 Feb 2020 07:05:09 GMT\n","dateCreated":"2020-02-24T23:25:00-08:00","dateModified":"2020-02-24T23:33:44-08:00","datePublished":"2020-02-24T23:25:00-08:00","description":"How configure spring dependency?","headline":"SpringBoot Manage Dependency","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/02/24/SpringBoot-Manage-Dependency/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2020/02/24/SpringBoot-Manage-Dependency/","keywords":"SpringBoot"}</script>
+    <meta name="description" content="How configure spring dependency?">
+<meta name="keywords" content="SpringBoot">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="SpringBoot Manage Dependency">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;SpringBoot-Manage-Dependency&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="How configure spring dependency?">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-25T07:33:44.953Z">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2020/02/24/springboot-manage-dependency/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            SpringBoot Manage Dependency
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-02-24T23:25:00-08:00">
+	
+		    Feb 24, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/SpringBoot/">SpringBoot</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>How configure spring dependency?</p>
+<a id="more"></a>
+
+
+<p>Spring boot is managed dependency base on <strong>spring-boot-starter-parent</strong> in pom.xml if using maven.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.3.0.M1&lt;/version&gt;</span><br><span class="line">        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br><span class="line">    &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;demo&lt;/artifactId&gt;</span><br><span class="line"></span><br><span class="line">    .........</span><br></pre></td></tr></table></figure>
+
+<p>When click <strong>spring-boot-dependencies</strong>, can see real managed dependency configure.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.3.0.M1&lt;/version&gt;</span><br><span class="line">  &lt;/parent&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">  &lt;packaging&gt;pom&lt;/packaging&gt;</span><br><span class="line">  &lt;description&gt;Parent pom providing dependency and plugin management for applications built with Maven&lt;/description&gt;</span><br><span class="line">  &lt;properties&gt;</span><br><span class="line"></span><br><span class="line">    .........</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;2.3.0.M1&lt;/version&gt;</span><br><span class="line">  &lt;packaging&gt;pom&lt;/packaging&gt;</span><br><span class="line">  &lt;description&gt;Spring Boot Dependencies&lt;/description&gt;</span><br><span class="line">  &lt;url&gt;https://projects.spring.io/spring-boot/#&lt;/url&gt;</span><br><span class="line">  &lt;organization&gt;</span><br><span class="line">    &lt;name&gt;Pivotal Software, Inc.&lt;/name&gt;</span><br><span class="line">    &lt;url&gt;https://spring.io&lt;/url&gt;</span><br><span class="line">  &lt;/organization&gt;</span><br><span class="line">  &lt;licenses&gt;</span><br><span class="line">    &lt;license&gt;</span><br><span class="line">      &lt;name&gt;Apache License, Version 2.0&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http://www.apache.org/licenses/LICENSE-2.0&lt;/url&gt;</span><br><span class="line">    &lt;/license&gt;</span><br><span class="line">  &lt;/licenses&gt;</span><br><span class="line">  &lt;developers&gt;</span><br><span class="line">    &lt;developer&gt;</span><br><span class="line">      &lt;name&gt;Pivotal&lt;/name&gt;</span><br><span class="line">      &lt;email&gt;info@pivotal.io&lt;/email&gt;</span><br><span class="line">      &lt;organization&gt;Pivotal Software, Inc.&lt;/organization&gt;</span><br><span class="line">      &lt;organizationUrl&gt;https://www.spring.io&lt;/organizationUrl&gt;</span><br><span class="line">    &lt;/developer&gt;</span><br><span class="line">  &lt;/developers&gt;</span><br><span class="line">  &lt;scm&gt;</span><br><span class="line">    &lt;connection&gt;scm:git:git://github.com/spring-projects/spring-boot.git&lt;/connection&gt;</span><br><span class="line">    &lt;developerConnection&gt;scm:git:ssh://git@github.com/spring-projects/spring-boot.git&lt;/developerConnection&gt;</span><br><span class="line">    &lt;url&gt;https://github.com/spring-projects/spring-boot&lt;/url&gt;</span><br><span class="line">  &lt;/scm&gt;</span><br><span class="line">  &lt;issueManagement&gt;</span><br><span class="line">    &lt;system&gt;GitHub&lt;/system&gt;</span><br><span class="line">    &lt;url&gt;https://github.com/spring-projects/spring-boot/issues&lt;/url&gt;</span><br><span class="line">  &lt;/issueManagement&gt;</span><br><span class="line">  &lt;properties&gt;</span><br><span class="line">    &lt;activemq.version&gt;5.15.11&lt;/activemq.version&gt;</span><br><span class="line">    &lt;antlr2.version&gt;2.7.7&lt;/antlr2.version&gt;</span><br><span class="line">    &lt;appengine-sdk.version&gt;1.9.77&lt;/appengine-sdk.version&gt;</span><br><span class="line">    &lt;artemis.version&gt;2.10.1&lt;/artemis.version&gt;</span><br><span class="line">    &lt;aspectj.version&gt;1.9.5&lt;/aspectj.version&gt;</span><br><span class="line">    &lt;assertj.version&gt;3.14.0&lt;/assertj.version&gt;</span><br><span class="line">    &lt;atomikos.version&gt;4.0.6&lt;/atomikos.version&gt;</span><br><span class="line">    &lt;awaitility.version&gt;4.0.1&lt;/awaitility.version&gt;</span><br><span class="line">    &lt;bitronix.version&gt;2.1.4&lt;/bitronix.version&gt;</span><br><span class="line">    &lt;build-helper-maven-plugin.version&gt;3.0.0&lt;/build-helper-maven-plugin.version&gt;</span><br><span class="line">    &lt;byte-buddy.version&gt;1.10.4&lt;/byte-buddy.version&gt;</span><br><span class="line">    &lt;caffeine.version&gt;2.8.0&lt;/caffeine.version&gt;</span><br><span class="line"></span><br><span class="line">    .........</span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;parent&gt;</code> in pom.xml takes care of dependency management super well and Spring Boot recommend use <code>&lt;parent&gt;</code>.</p>
+<p>If want custom own dependency configure without <code>&lt;parent&gt;</code> tag, can use <code>&lt;dependencyManagement&gt;</code> like below coed.   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;!-- Import dependency management from Spring Boot --&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.2.4.RELEASE&lt;/version&gt;</span><br><span class="line">            &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">            &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">&lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>If want add other dependency, just write dependency code in <code>&lt;dependencies&gt;</code> at pom.xml.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.3.0.M1&lt;/version&gt;</span><br><span class="line">        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">       .........</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;!-- modelmapper --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.modelmapper&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;modelmapper&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.3.6&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">gyun@always MINGW64 ~/IdeaProjects/Spring-exe (master)</span><br><span class="line">$ ls</span><br><span class="line">document/  HELP.md  mvnw*  mvnw.cmd  pom.xml  README.md  Spring-exe.iml  src/  target/  tomcat.8080/  tomcat.9090/</span><br><span class="line"></span><br><span class="line">gyun@always MINGW64 ~/IdeaProjects/Spring-exe (master)</span><br><span class="line">$ keytool -genkey -alias tomcat -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 4000</span><br><span class="line">Enter keystore password:</span><br><span class="line">Re-enter new password:</span><br><span class="line">What is your first and last name?</span><br><span class="line">  [Unknown]:  Ewan choi</span><br><span class="line">What is the name of your organizational unit?</span><br><span class="line">  [Unknown]:  Ewan</span><br><span class="line">What is the name of your organization?</span><br><span class="line">  [Unknown]:  CEO</span><br><span class="line">What is the name of your City or Locality?</span><br><span class="line">  [Unknown]:  SEATTLE</span><br><span class="line">What is the name of your State or Province?</span><br><span class="line">  [Unknown]:  WA</span><br><span class="line">What is the two-letter country code for this unit?</span><br><span class="line">  [Unknown]:  yes</span><br><span class="line">Is CN=Ewan choi, OU=Ewan, O=CEO, L=SEATTLE, ST=WA, C=yes correct?</span><br><span class="line">  [no]:  yes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">gyun@always MINGW64 ~/IdeaProjects/Spring-exe (master)</span><br><span class="line">$ ls</span><br><span class="line">document/  HELP.md  keystore.p12  mvnw*  mvnw.cmd  pom.xml  README.md  Spring-exe.iml  src/  target/  tomcat.8080/  tomcat.9090/</span><br><span class="line"></span><br><span class="line">gyun@always MINGW64 ~/IdeaProjects/Spring-exe (master)</span><br><span class="line">$ curl - I --http http://localhost:8080</span><br><span class="line">curl: option -: is unknown</span><br><span class="line">curl: try &apos;curl --help&apos; or &apos;curl --manual&apos; for more information</span><br><span class="line"></span><br><span class="line">gyun@always MINGW64 ~/IdeaProjects/Spring-exe (master)</span><br><span class="line">$ curl -I --http http://localhost:8080</span><br><span class="line">curl: option --http: is ambiguous</span><br><span class="line">curl: try &apos;curl --help&apos; or &apos;curl --manual&apos; for more information</span><br><span class="line"></span><br><span class="line">gyun@always MINGW64 ~/IdeaProjects/Spring-exe (master)</span><br><span class="line">$ curl -I --http2 http://localhost:8080</span><br><span class="line">HTTP/1.1 404</span><br><span class="line">Vary: Origin</span><br><span class="line">Vary: Access-Control-Request-Method</span><br><span class="line">Vary: Access-Control-Request-Headers</span><br><span class="line">Content-Type: application/json</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Date: Thu, 13 Feb 2020 07:05:09 GMT</span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/SpringBoot-Application/" data-tooltip="SpringBoot Application" aria-label="PREVIOUS: SpringBoot Application">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Spring-AOP/" data-tooltip="Spring AOP" aria-label="NEXT: Spring AOP">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/SpringBoot-Manage-Dependency/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/SpringBoot-Manage-Dependency/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/SpringBoot-Manage-Dependency/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/SpringBoot-Application/" data-tooltip="SpringBoot Application" aria-label="PREVIOUS: SpringBoot Application">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Spring-AOP/" data-tooltip="Spring AOP" aria-label="NEXT: Spring AOP">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/SpringBoot-Manage-Dependency/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/SpringBoot-Manage-Dependency/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/SpringBoot-Manage-Dependency/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/SpringBoot-Manage-Dependency/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/SpringBoot-Manage-Dependency/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/SpringBoot-Manage-Dependency/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>Univera in Seattle</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>UNIVERA</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

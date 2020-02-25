@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>SpringBoot Internal webserver - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"First of all, spring boot isn’t one of server. It just create WebServer instance internally.\n\n\n\nTo create internal WebServer, like below.\n\nCreate Tomcat Object.\nSet port.\nAdd context at Tomcat.\nCreate Servlet.\nAdd Servlet at Tomcat.\nMapping Servlet at Tomcat.\nExecute Tomcat and wait.\n\nHere is executable WebServer without Springboot internal WebServer.\n123456789101112131415161718192021222324public static void main(String[] args) throws LifecycleException &#123;    Tomcat tomcat = new Tomcat();   //1. Create Tomcat Object.    tomcat.setPort(7070);   //2. Set port.    Context context = tomcat.addContext(\"/\", \"/\");  //3. Add context at Tomcat.    HttpServlet servlet = new HttpServlet() &#123;   //4. Create Servlet.        @Override        protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;            PrintWriter writer = resp.getWriter();            writer.println(\"&lt;html&gt;\");            writer.println(\"&lt;body&gt;\");            writer.println(\"hello!\");            writer.println(\"&lt;/body&gt;\");            writer.println(\"&lt;/html&gt;\");        &#125;    &#125;;    String servletName = \"helloServelet\";    tomcat.addServlet(\"/\",servletName, servlet);    //5. Add Servlet at Tomcat.    context.addServletMappingDecoded(\"/hello\", servletName);    //6. Mapping Servlet at Tomcat.    tomcat.start();     //7. Execute Tomcat and wait.&#125;\n\nBut, If use SpringBoot, do not have to care about above setting.\nSpringBoot execute internal WebServer write as below code.\n12SpringApplication app = new SpringApplication(Application.class);app.run(args);\n\nIf don’t want running as WebServer, can write below setting at application.properties.\n1spring.main.web-application-type=none\n\nThen, SprungBoot run as normal application.\nAlso can setting port number what you want as shown below.\n1server.port=7070\n\nIf want setting an available port automatically, write code as shown below.\n1server.port=0\n","dateCreated":"2020-02-24T23:28:02-08:00","dateModified":"2020-02-24T23:28:27-08:00","datePublished":"2020-02-24T23:28:02-08:00","description":"First of all, spring boot isn’t one of server. It just create WebServer instance internally.","headline":"SpringBoot Internal webserver","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/02/24/SpringBoot-Internal-webserver/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2020/02/24/SpringBoot-Internal-webserver/","keywords":"SpringBoot"}</script>
+    <meta name="description" content="First of all, spring boot isn’t one of server. It just create WebServer instance internally.">
+<meta name="keywords" content="SpringBoot">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="SpringBoot Internal webserver">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;SpringBoot-Internal-webserver&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="First of all, spring boot isn’t one of server. It just create WebServer instance internally.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-25T07:28:27.482Z">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2020/02/24/springboot-internal-webserver/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            SpringBoot Internal webserver
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-02-24T23:28:02-08:00">
+	
+		    Feb 24, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/SpringBoot/">SpringBoot</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>First of all, spring boot isn’t one of server. It just create WebServer instance internally.</p>
+<a id="more"></a>
+
+
+<p>To create internal WebServer, like below.</p>
+<ol>
+<li>Create Tomcat Object.</li>
+<li>Set port.</li>
+<li>Add context at Tomcat.</li>
+<li>Create Servlet.</li>
+<li>Add Servlet at Tomcat.</li>
+<li>Mapping Servlet at Tomcat.</li>
+<li>Execute Tomcat and wait.</li>
+</ol>
+<p>Here is executable WebServer without Springboot internal WebServer.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> LifecycleException </span>&#123;</span><br><span class="line">    Tomcat tomcat = <span class="keyword">new</span> Tomcat();   <span class="comment">//1. Create Tomcat Object.</span></span><br><span class="line">    tomcat.setPort(<span class="number">7070</span>);   <span class="comment">//2. Set port.</span></span><br><span class="line"></span><br><span class="line">    Context context = tomcat.addContext(<span class="string">"/"</span>, <span class="string">"/"</span>);  <span class="comment">//3. Add context at Tomcat.</span></span><br><span class="line"></span><br><span class="line">    HttpServlet servlet = <span class="keyword">new</span> HttpServlet() &#123;   <span class="comment">//4. Create Servlet.</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">            PrintWriter writer = resp.getWriter();</span><br><span class="line">            writer.println(<span class="string">"&lt;html&gt;"</span>);</span><br><span class="line">            writer.println(<span class="string">"&lt;body&gt;"</span>);</span><br><span class="line">            writer.println(<span class="string">"hello!"</span>);</span><br><span class="line">            writer.println(<span class="string">"&lt;/body&gt;"</span>);</span><br><span class="line">            writer.println(<span class="string">"&lt;/html&gt;"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    String servletName = <span class="string">"helloServelet"</span>;</span><br><span class="line">    tomcat.addServlet(<span class="string">"/"</span>,servletName, servlet);    <span class="comment">//5. Add Servlet at Tomcat.</span></span><br><span class="line">    context.addServletMappingDecoded(<span class="string">"/hello"</span>, servletName);    <span class="comment">//6. Mapping Servlet at Tomcat.</span></span><br><span class="line"></span><br><span class="line">    tomcat.start();     <span class="comment">//7. Execute Tomcat and wait.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>But, If use SpringBoot, do not have to care about above setting.</p>
+<p>SpringBoot execute internal WebServer write as below code.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication app = <span class="keyword">new</span> SpringApplication(Application<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">app.run(args);</span><br></pre></td></tr></table></figure>
+
+<p>If don’t want running as WebServer, can write below setting at <code>application.properties</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.main.web-application-type=none</span><br></pre></td></tr></table></figure>
+
+<p>Then, SprungBoot run as normal application.</p>
+<p>Also can setting port number what you want as shown below.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.port=7070</span><br></pre></td></tr></table></figure>
+
+<p>If want setting an available port automatically, write code as shown below.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.port=0</span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/SpringBoot-properties/" data-tooltip="SpringBoot properties" aria-label="PREVIOUS: SpringBoot properties">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/SpringBoot-Application/" data-tooltip="SpringBoot Application" aria-label="NEXT: SpringBoot Application">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/SpringBoot-Internal-webserver/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/SpringBoot-Internal-webserver/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/SpringBoot-Internal-webserver/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/SpringBoot-properties/" data-tooltip="SpringBoot properties" aria-label="PREVIOUS: SpringBoot properties">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/SpringBoot-Application/" data-tooltip="SpringBoot Application" aria-label="NEXT: SpringBoot Application">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/SpringBoot-Internal-webserver/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/SpringBoot-Internal-webserver/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/SpringBoot-Internal-webserver/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/SpringBoot-Internal-webserver/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/SpringBoot-Internal-webserver/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/SpringBoot-Internal-webserver/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>Univera in Seattle</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>UNIVERA</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

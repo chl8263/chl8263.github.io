@@ -8,15 +8,29 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/Develop/Spring/</loc>
-        <lastmod>2020-01-24T03:36:08.551Z</lastmod>
+        <loc>http://yoursite.com/categories/Develop/Kotlin/</loc>
+        <lastmod>2020-02-25T07:56:58.865Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/categories/Develop/</loc>
-        <lastmod>2020-01-24T03:36:08.551Z</lastmod>
+        <lastmod>2020-02-25T07:56:58.865Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/categories/Develop/Spring/</loc>
+        <lastmod>2020-02-25T07:34:57.824Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/categories/Develop/SpringBoot/</loc>
+        <lastmod>2020-02-25T07:33:47.550Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

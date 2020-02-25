@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>SpringBoot Application - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"The way for start application\n\n\nThere are few ways start Spring Boot Application in main method.\n\nUsing static method.\n\n1SpringApplication.run(Application.class, args);\n\n\nUsing instance (Able to customizing).\n\n12SpringApplication app = new SpringApplication(Application.class);app.run(args);\n\n\nusing SpringApplicationBuilder.\n\nIf want generate hierarchical Application Context, use SpringApplicationBuilder.\n123new SpringApplicationBuilder()        .sources(Application.class)        .run(args);\n\nApplcation typeWhere are few application type.\n\nSERVLET\n\nCan execute based on Servlet as write below code.\n123SpringApplication app = new SpringApplication(Application.class);        app.setWebApplicationType(WebApplicationType.SERVLET);        app.run(args);\n\n\nNo web\n\nCan execute based on just Java application as write below code.\n123SpringApplication app = new SpringApplication(Application.class);        app.setWebApplicationType(WebApplicationType.NONE);        app.run(args);\n\n\nSpring webflux\n\nCan execute based on Spring webflux as write below code.\n123SpringApplication app = new SpringApplication(Application.class);        app.setWebApplicationType(WebApplicationType.REACTIVE);        app.run(args);\n\nArgument valueIf you try to use an argument value and the value is --bar, can get this way as like below.\n1234567@Componentpublic class SimpleListener2 &#123;    public SimpleListener2(ApplicationArguments arguments)&#123;        System.out.println(\"bar: \" + arguments.containsOption(\"bar\"));    &#125;&#125;\n\nThe result like below.\n1232020-02-16 14:41:57.272  INFO 2452 --- [           main] me.ewan.ewan.Application                 : Starting Application on always with PID 2452 (C:\\Users\\gyun\\IdeaProjects\\SpringStudy+\\build\\classes\\java\\main started by gyun in C:\\Users\\gyun\\IdeaProjects\\SpringStudy+)2020-02-16 14:41:57.277  INFO 2452 --- [           main] me.ewan.ewan.Application                 : No active profile set, falling back to default profiles: defaultbar: true\n\nApplication ListenerCan get be imported at application startup and end point.\n\nApplicationStartingEvent (When application starts)\n\n12345678910@Componentpublic class SimpleListener implements ApplicationListener&lt;ApplicationStartingEvent&gt; &#123;    @Override    public void onApplicationEvent(ApplicationStartingEvent event) &#123;        System.out.println(\"=======================\");        System.out.println(\"Application is starting\");        System.out.println(\"=======================\");    &#125;&#125;\n\nBut in this case, ApplicationStartingEvent create more faster than Application Context.\nSo need additional task that add Listener at Main method.\n123SpringApplication app = new SpringApplication(Application.class);       app.addListeners(new SimpleListener());       app.run(args);\n\n\nApplicationStartedEvent  (After application starts)\n\nIn this case, ApplicationStartedEvent created later than Application Context, so do not need any additional task.\n12345678910@Componentpublic class SimpleListener implements ApplicationListener&lt;ApplicationStartedEvent&gt; &#123;    @Override    public void onApplicationEvent(ApplicationStartedEvent event) &#123;        System.out.println(\"=======================\");        System.out.println(\"Application is started\");        System.out.println(\"=======================\");    &#125;&#125;\n","dateCreated":"2020-02-24T23:26:41-08:00","dateModified":"2020-02-24T23:33:37-08:00","datePublished":"2020-02-24T23:26:41-08:00","description":"The way for start application","headline":"SpringBoot Application","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/02/24/SpringBoot-Application/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2020/02/24/SpringBoot-Application/","keywords":"SpringBoot"}</script>
+    <meta name="description" content="The way for start application">
+<meta name="keywords" content="SpringBoot">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="SpringBoot Application">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;SpringBoot-Application&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="The way for start application">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-25T07:33:37.115Z">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2020/02/24/springboot-application/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            SpringBoot Application
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-02-24T23:26:41-08:00">
+	
+		    Feb 24, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/SpringBoot/">SpringBoot</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>The way for start application</p>
+<a id="more"></a>
+
+<p>There are few ways start Spring Boot Application in main method.</p>
+<ol>
+<li>Using static method.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication.run(Application<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Using instance (Able to customizing).</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication app = <span class="keyword">new</span> SpringApplication(Application<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">app.run(args);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>using SpringApplicationBuilder.</li>
+</ol>
+<p>If want generate hierarchical Application Context, use SpringApplicationBuilder.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> SpringApplicationBuilder()</span><br><span class="line">        .sources(Application<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">        .<span class="title">run</span>(<span class="title">args</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Applcation-type"><a href="#Applcation-type" class="headerlink" title="Applcation type"></a>Applcation type</h3><p>Where are few application type.</p>
+<ol>
+<li>SERVLET</li>
+</ol>
+<p>Can execute based on Servlet as write below code.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication app = <span class="keyword">new</span> SpringApplication(Application<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        app.setWebApplicationType(WebApplicationType.SERVLET);</span><br><span class="line">        app.run(args);</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>No web</li>
+</ol>
+<p>Can execute based on just Java application as write below code.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication app = <span class="keyword">new</span> SpringApplication(Application<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        app.setWebApplicationType(WebApplicationType.NONE);</span><br><span class="line">        app.run(args);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Spring webflux</li>
+</ol>
+<p>Can execute based on Spring webflux as write below code.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication app = <span class="keyword">new</span> SpringApplication(Application<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        app.setWebApplicationType(WebApplicationType.REACTIVE);</span><br><span class="line">        app.run(args);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Argument-value"><a href="#Argument-value" class="headerlink" title="Argument value"></a>Argument value</h3><p>If you try to use an argument value and the value is <code>--bar</code>, can get this way as like below.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleListener2</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SimpleListener2</span><span class="params">(ApplicationArguments arguments)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"bar: "</span> + arguments.containsOption(<span class="string">"bar"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The result like below.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2020-02-16 14:41:57.272  INFO 2452 --- [           main] me.ewan.ewan.Application                 : Starting Application on always with PID 2452 (C:\Users\gyun\IdeaProjects\SpringStudy+\build\classes\java\main started by gyun in C:\Users\gyun\IdeaProjects\SpringStudy+)</span><br><span class="line">2020-02-16 14:41:57.277  INFO 2452 --- [           main] me.ewan.ewan.Application                 : No active profile set, falling back to default profiles: default</span><br><span class="line">bar: true</span><br></pre></td></tr></table></figure>
+
+<h3 id="Application-Listener"><a href="#Application-Listener" class="headerlink" title="Application Listener"></a>Application Listener</h3><p>Can get be imported at application startup and end point.</p>
+<ol>
+<li>ApplicationStartingEvent (When application starts)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleListener</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span>&lt;<span class="title">ApplicationStartingEvent</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onApplicationEvent</span><span class="params">(ApplicationStartingEvent event)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"======================="</span>);</span><br><span class="line">        System.out.println(<span class="string">"Application is starting"</span>);</span><br><span class="line">        System.out.println(<span class="string">"======================="</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>But in this case, ApplicationStartingEvent create more faster than Application Context.</p>
+<p>So need additional task that add Listener at Main method.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SpringApplication app = <span class="keyword">new</span> SpringApplication(Application<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">       app.addListeners(<span class="keyword">new</span> SimpleListener());</span><br><span class="line">       app.run(args);</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>ApplicationStartedEvent  (After application starts)</li>
+</ol>
+<p>In this case, ApplicationStartedEvent created later than Application Context, so do not need any additional task.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleListener</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span>&lt;<span class="title">ApplicationStartedEvent</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onApplicationEvent</span><span class="params">(ApplicationStartedEvent event)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"======================="</span>);</span><br><span class="line">        System.out.println(<span class="string">"Application is started"</span>);</span><br><span class="line">        System.out.println(<span class="string">"======================="</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/SpringBoot-Internal-webserver/" data-tooltip="SpringBoot Internal webserver" aria-label="PREVIOUS: SpringBoot Internal webserver">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/SpringBoot-Manage-Dependency/" data-tooltip="SpringBoot Manage Dependency" aria-label="NEXT: SpringBoot Manage Dependency">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/SpringBoot-Application/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/SpringBoot-Application/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/SpringBoot-Application/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/SpringBoot-Internal-webserver/" data-tooltip="SpringBoot Internal webserver" aria-label="PREVIOUS: SpringBoot Internal webserver">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/SpringBoot-Manage-Dependency/" data-tooltip="SpringBoot Manage Dependency" aria-label="NEXT: SpringBoot Manage Dependency">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/SpringBoot-Application/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/SpringBoot-Application/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/SpringBoot-Application/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/SpringBoot-Application/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/SpringBoot-Application/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/SpringBoot-Application/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>Univera in Seattle</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>UNIVERA</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

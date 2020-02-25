@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>Kotlin Arrays - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"Summarize of Kotlin Arrays.\n\n\n4. Arrays1. Generic ArraysGeneric arrays in Kotlin are represented by Array&lt;T&gt;\nTo create an empty array, use emptyArray&lt;T&gt;() factory function.\n1val empty = emptyArray&lt;String&gt;()\n\nCan use like below situation.\n1return someInputArray?.filterNotNull() ?: emptyArray()\n\nTo create an array with given size and initial values, use the constructor.\n123var arr = Array&lt;String&gt;(size = 5, init = &#123;index -&gt; \"Item #$index\"&#125;)println(Arrays.toString(arr))println(arr.size)\n\n12345emptyArr.set(1, \"A\")emptyArr.set(2, \"B\")// oremptyArr[1] = \"A\"emptyArr[2] = \"B\"\n\n2. Arrays of PrimitivesThose types do not inherit from Array to avoid boxing, however, they have same attributes and method.\n\n\n\nKotlin type\nFactory function\nJVM type\n\n\n\nBooleanArray\nbooleanArrayOf(true, false)\nboolean[ ]\n\n\nByteArray\nbyteArrayOf(1, 2, 3)\nbyte[ ]\n\n\nCharArray\ncharArrayOf(‘a’, ‘b’, ‘c’)\nchar[ ]\n\n\nDoubleArray\ndoubleArrayOf(1.2, 5.0)\ndouble[ ]\n\n\nFloatArray\nfloatArrayOf(1.2, 5.0)\nfloat[ ]\n\n\nIntArray\nintArrayOf(1, 2, 3)\nint[ ]\n\n\nLongArray\nlongArrayOf(1, 2, 3)\nlong[ ]\n\n\nShortArray\nshortArrayOf(1, 2, 3)\nshort[ ]\n\n\n3. Create an arrayCan create array as factory method.\n1val a = arrayOf(1,2,3) // create an Array&lt;Int&gt; of size 3 containing [1, 2, 3]\n\n4. Create an array using a closure1val a = Array(3)&#123; i -&gt; i * 2 &#125;  // create an Array&lt;Int&gt; of size 3 containing [0, 2, 4]\n\n5. Create an uninitialized array1val a = arrayOfNulls&lt;Int&gt;(3)  // creates an Array&lt;int&gt;? of [null, null, null]\n","dateCreated":"2020-02-24T23:52:21-08:00","dateModified":"2020-02-24T23:54:01-08:00","datePublished":"2020-02-24T23:52:21-08:00","description":"Summarize of Kotlin Arrays.","headline":"Kotlin Arrays","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/02/24/Kotlin-Arrays/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2020/02/24/Kotlin-Arrays/","keywords":"Kotlin"}</script>
+    <meta name="description" content="Summarize of Kotlin Arrays.">
+<meta name="keywords" content="Kotlin">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Kotlin Arrays">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;Kotlin-Arrays&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="Summarize of Kotlin Arrays.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-25T07:54:01.778Z">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2020/02/24/kotlin-arrays/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            Kotlin Arrays
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-02-24T23:52:21-08:00">
+	
+		    Feb 24, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/Kotlin/">Kotlin</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>Summarize of Kotlin Arrays.</p>
+<a id="more"></a>
+
+<h2 id="4-Arrays"><a href="#4-Arrays" class="headerlink" title="4. Arrays"></a>4. Arrays</h2><h4 id="1-Generic-Arrays"><a href="#1-Generic-Arrays" class="headerlink" title="1. Generic Arrays"></a>1. Generic Arrays</h4><p>Generic arrays in Kotlin are represented by <code>Array&lt;T&gt;</code></p>
+<p>To create an empty array, use <code>emptyArray&lt;T&gt;()</code> factory function.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> empty = emptyArray&lt;String&gt;()</span><br></pre></td></tr></table></figure>
+
+<p>Can use like below situation.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> someInputArray?.filterNotNull() ?: emptyArray()</span><br></pre></td></tr></table></figure>
+
+<p>To create an array with given size and initial values, use the constructor.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = Array&lt;String&gt;(size = <span class="number">5</span>, <span class="keyword">init</span> = &#123;index -&gt; <span class="string">"Item #<span class="variable">$index</span>"</span>&#125;)</span><br><span class="line">println(Arrays.toString(arr))</span><br><span class="line">println(arr.size)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">emptyArr.<span class="keyword">set</span>(<span class="number">1</span>, <span class="string">"A"</span>)</span><br><span class="line">emptyArr.<span class="keyword">set</span>(<span class="number">2</span>, <span class="string">"B"</span>)</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">emptyArr[<span class="number">1</span>] = <span class="string">"A"</span></span><br><span class="line">emptyArr[<span class="number">2</span>] = <span class="string">"B"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Arrays-of-Primitives"><a href="#2-Arrays-of-Primitives" class="headerlink" title="2. Arrays of Primitives"></a>2. Arrays of Primitives</h4><p>Those types do not inherit from Array<t> to avoid boxing, however, they have same attributes and method.</t></p>
+<table>
+<thead>
+<tr>
+<th>Kotlin type</th>
+<th>Factory function</th>
+<th>JVM type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BooleanArray</td>
+<td>booleanArrayOf(true, false)</td>
+<td>boolean[ ]</td>
+</tr>
+<tr>
+<td>ByteArray</td>
+<td>byteArrayOf(1, 2, 3)</td>
+<td>byte[ ]</td>
+</tr>
+<tr>
+<td>CharArray</td>
+<td>charArrayOf(‘a’, ‘b’, ‘c’)</td>
+<td>char[ ]</td>
+</tr>
+<tr>
+<td>DoubleArray</td>
+<td>doubleArrayOf(1.2, 5.0)</td>
+<td>double[ ]</td>
+</tr>
+<tr>
+<td>FloatArray</td>
+<td>floatArrayOf(1.2, 5.0)</td>
+<td>float[ ]</td>
+</tr>
+<tr>
+<td>IntArray</td>
+<td>intArrayOf(1, 2, 3)</td>
+<td>int[ ]</td>
+</tr>
+<tr>
+<td>LongArray</td>
+<td>longArrayOf(1, 2, 3)</td>
+<td>long[ ]</td>
+</tr>
+<tr>
+<td>ShortArray</td>
+<td>shortArrayOf(1, 2, 3)</td>
+<td>short[ ]</td>
+</tr>
+</tbody></table>
+<h4 id="3-Create-an-array"><a href="#3-Create-an-array" class="headerlink" title="3. Create an array"></a>3. Create an array</h4><p>Can create array as factory method.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a = arrayOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">// create an Array&lt;Int&gt; of size 3 containing [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-Create-an-array-using-a-closure"><a href="#4-Create-an-array-using-a-closure" class="headerlink" title="4. Create an array using a closure"></a>4. Create an array using a closure</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a = Array(<span class="number">3</span>)&#123; i -&gt; i * <span class="number">2</span> &#125;  <span class="comment">// create an Array&lt;Int&gt; of size 3 containing [0, 2, 4]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-Create-an-uninitialized-array"><a href="#5-Create-an-uninitialized-array" class="headerlink" title="5. Create an uninitialized array"></a>5. Create an uninitialized array</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a = arrayOfNulls&lt;<span class="built_in">Int</span>&gt;(<span class="number">3</span>)  <span class="comment">// creates an Array&lt;int&gt;? of [null, null, null]</span></span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Kotlin/" rel="tag">Kotlin</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Kotlin-String/" data-tooltip="Kotlin String" aria-label="PREVIOUS: Kotlin String">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Kotlin-Basic-grammar/" data-tooltip="Kotlin Basic grammar" aria-label="NEXT: Kotlin Basic grammar">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/Kotlin-Arrays/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/Kotlin-Arrays/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/Kotlin-Arrays/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Kotlin-String/" data-tooltip="Kotlin String" aria-label="PREVIOUS: Kotlin String">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Kotlin-Basic-grammar/" data-tooltip="Kotlin Basic grammar" aria-label="NEXT: Kotlin Basic grammar">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/Kotlin-Arrays/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/Kotlin-Arrays/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/Kotlin-Arrays/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/Kotlin-Arrays/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/Kotlin-Arrays/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/Kotlin-Arrays/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>Univera in Seattle</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>UNIVERA</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

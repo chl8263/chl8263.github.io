@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>Spring Resource Abstraction - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"What is ResourceAbstraction?\n\n\nResource Abstraction is an abstraction of ‘java.net.URL’.\nJava.net.URLJava.net.URL class is for get resource in web.\nTo use java.net.URL is like below code.\n1234567891011121314151617181920212223@Componentpublic class LoaderRunner implements ApplicationRunner &#123;    @Autowired    ApplicationContext resourceLoader;    @Override    public void run(ApplicationArguments args) throws Exception &#123;        URL url = new URL(\"http://www.google.com\");        URLConnection urlConnection = url.openConnection();        InputStream inputStream = urlConnection.getInputStream();        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);        String data = \"\";        while (true)&#123;            data = bufferedReader.readLine();            if(data == null) break;            System.out.println(data);        &#125;    &#125;&#125;\n\nThe result is like that and can see google html source.\n1234567891011&lt;!doctype html&gt;&lt;html itemscope=&quot;&quot; itemtype=&quot;http://schema.org/WebPage&quot; lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta content=&quot;Search the world&apos;s information, including webpages, images, videos and more. Google has many special features to help you find exactly what you&apos;re looking for.&quot; name=&quot;description&quot;&gt;&lt;meta content=&quot;noodp&quot; name=&quot;robots&quot;&gt;&lt;meta content=&quot;text/html; charset=UTF-8&quot; http-equiv=&quot;Content-Type&quot;&gt;&lt;meta content=&quot;/images/branding/googleg/1x/googleg_standard_color_128dp.png&quot; itemprop=&quot;image&quot;&gt;&lt;title&gt;Google&lt;/title&gt;&lt;script nonce=&quot;uoSXLrjcvK7lZRFB6pZTzQ==&quot;&gt;(function()&#123;window.google=&#123;kEI:&apos;-ek8XsuqOPrB0PEPzYuGgAQ&apos;,kEXPI:&apos;0,1353746,5663,731,223,5104,207,2414,540,250,10,289,762,175,364,926,440,69,4,60,690,52,75,383,141,416,529,11,477,35,415585,712177,1197775,374,28,329090,1294,12383,4855,32692,15247,867,28684,364,8824,8384,1325,3534,1361,4323,4968,3022,4745,3123,7910,1808,1978,2042,5766,1,3142,5297,2054,920,873,1217,2975,2785,1509,2136,1142,9544,620,2884,20,318,1981,1191,1348,2774,519,400,2277,8,2796,1593,1279,390,652,1170,202,328,149,1103,840,517,1466,8,48,157,663,3438,108,152,52,1135,1,3,2063,606,1839,184,545,1232,143,377,686,1261,747,283,1,145,44,1009,93,328,1284,16,84,417,2426,1639,608,473,1339,29,719,1039,3227,773,2072,7,817,503,4279,2034,6513,2344,318,170,898,303,1720,2459,1226,398,1058,6,281,2842,812,1274,108,1246,1027,566,87,481,908,2,433,142,365,533,314,8,1394,366,2132,265,326,1530,97,3049,62,355,225,691,305,828,1,550,290,176,10,2,23,1696,97,258,210,426,88,185,625,189,183,109,279,40,127,37,90,1,494,7,665,30,932,121,7,238,396,1026,3,377,328,1276,1183,296,395,295,947,501,82,65,70,44,463,408,2,139,199,2,52,20,109,372,145,972,28,5850365,3257,1802637,4194968,2801054,549,333,444,1,2,80,1,900,896,1,8,1,2,2551,1,748,141,59,736,563,1,4265,1,1,1,1,137,1,879,9,305,141,98,83,100,16,67,3365237,20598662,23&apos;,kBL:&apos;TVpb&apos;&#125;;google.sn=&apos;webhp&apos;;google.kHL=&apos;en&apos;;&#125;)();(function()&#123;google.lc=[];google.li=0;google.getEI=function(a)&#123;for(var b;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute(&quot;eid&quot;)));)a=a.parentNode;return b||google.kEI&#125;;google.getLEI=function(a)&#123;for(var b=null;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute(&quot;leid&quot;)));)a=a.parentNode;return b&#125;;google.ml=function()&#123;return null&#125;;google.time=function()&#123;return Date.now()&#125;;google.log=function(a,b,e,c,g)&#123;if(a=google.logUrl(a,b,e,c,g))&#123;b=new Image;var d=google.lc,f=google.li;d[f]=b;b.onerror=b.onload=b.onabort=function()&#123;delete d[f]&#125;;google.vel&amp;&amp;google.vel.lu&amp;&amp;google.vel.lu(a);b.src=a;google.li=f+1&#125;&#125;;google.logUrl=function(a,b,e,c,g)&#123;var d=&quot;&quot;,f=google.ls||&quot;&quot;;e||-1!=b.search(&quot;&amp;ei=&quot;)||(d=&quot;&amp;ei=&quot;+google.getEI(c),-1==b.search(&quot;&amp;lei=&quot;)&amp;&amp;(c=google.getLEI(c))&amp;&amp;(d+=&quot;&amp;lei=&quot;+c));c=&quot;&quot;;!e&amp;&amp;google.cshid&amp;&amp;-1==b.search(&quot;&amp;cshid=&quot;)&amp;&amp;&quot;slh&quot;!=a&amp;&amp;(c=&quot;&amp;cshid=&quot;+google.cshid);a=e||&quot;/&quot;+(g||&quot;gen_204&quot;)+&quot;?atyp=i&amp;ct=&quot;+a+&quot;&amp;cad=&quot;+b+d+f+&quot;&amp;zx=&quot;+google.time()+c;/^http:/i.test(a)&amp;&amp;&quot;https:&quot;==window.location.protocol&amp;&amp;(google.ml(Error(&quot;a&quot;),!1,&#123;src:a,glmm:1&#125;),a=&quot;&quot;);return a&#125;;&#125;).call(this);(function()&#123;google.y=&#123;&#125;;google.x=function(a,b)&#123;if(a)var c=a.id;else&#123;do c=Math.random();while(google.y[c])&#125;google.y[c]=[a,b];return!1&#125;;google.lm=[];google.plm=function(a)&#123;google.lm.push.apply(google.lm,a)&#125;;google.lq=[];google.load=function(a,b,c)&#123;google.lq.push([[a],b,c])&#125;;google.loadAll=function(a,b)&#123;google.lq.push([a,b])&#125;;&#125;).call(this);google.f=&#123;&#125;;(function()&#123;document.documentElement.addEventListener(&quot;submit&quot;,function(b)&#123;var a;if(a=b.target)&#123;var c=a.getAttribute(&quot;data-submitfalse&quot;);a=&quot;1&quot;==c||&quot;q&quot;==c&amp;&amp;!a.elements.q.value?!0:!1&#125;else a=!1;a&amp;&amp;(b.preventDefault(),b.stopPropagation())&#125;,!0);document.documentElement.addEventListener(&quot;click&quot;,function(b)&#123;var a;a:&#123;for(a=b.target;a&amp;&amp;a!=document.documentElement;a=a.parentElement)if(&quot;A&quot;==a.tagName)&#123;a=&quot;1&quot;==a.getAttribute(&quot;data-nohref&quot;);break a&#125;a=!1&#125;a&amp;&amp;b.preventDefault()&#125;,!0);&#125;).call(this);var a=window.location,b=a.href.indexOf(&quot;#&quot;);if(0&lt;=b)&#123;var c=a.href.substring(b+1);/(^|&amp;)q=/.test(c)&amp;&amp;-1==c.indexOf(&quot;#&quot;)&amp;&amp;a.replace(&quot;/search?&quot;+c.replace(/(^|&amp;)fp=[^&amp;]*/g,&quot;&quot;)+&quot;&amp;cad=h&quot;)&#125;;&lt;/script&gt;&lt;style&gt;#gbar,#guser&#123;font-size:13px;padding-top:1px !important;&#125;#gbar&#123;height:22px&#125;#guser&#123;padding-bottom:7px !important;text-align:right&#125;.gbh,.gbd&#123;border-top:1px solid #c9d7f1;font-size:1px&#125;.gbh&#123;height:0;position:absolute;top:24px;width:100%&#125;@media all&#123;.gb1&#123;height:22px;margin-right:.5em;vertical-align:top&#125;#gbar&#123;float:left&#125;&#125;a.gb1,a.gb4&#123;text-decoration:underline !important&#125;a.gb1,a.gb4&#123;color:#00c !important&#125;.gbi .gb4&#123;color:#dd8e27 !important&#125;.gbf .gb4&#123;color:#900 !important&#125;&lt;/style&gt;&lt;style&gt;body,td,a,p,.h&#123;font-family:arial,sans-serif&#125;body&#123;margin:0;overflow-y:scroll&#125;#gog&#123;padding:3px 8px 0&#125;td&#123;line-height:.8em&#125;.gac_m td&#123;line-height:17px&#125;form&#123;margin-bottom:20px&#125;.h&#123;color:#36c&#125;.q&#123;color:#00c&#125;.ts td&#123;padding:0&#125;.ts&#123;border-collapse:collapse&#125;em&#123;font-weight:bold;font-style:normal&#125;.lst&#123;height:25px;width:496px&#125;.gsfi,.lst&#123;font:18px arial,sans-serif&#125;.gsfs&#123;font:17px arial,sans-serif&#125;.ds&#123;display:inline-box;display:inline-block;margin:3px 0 4px;margin-left:4px&#125;input&#123;font-family:inherit&#125;a.gb1,a.gb2,a.gb3,a.gb4&#123;color:#11c !important&#125;body&#123;background:#fff;color:#000&#125;a&#123;color:#11c;text-decoration:none&#125;a:hover,a:active&#123;text-decoration:underline&#125;.fl a&#123;color:#36c&#125;a:visited&#123;color:#551a8b&#125;a.gb1,a.gb4&#123;text-decoration:underline&#125;a.gb3:hover&#123;text-decoration:none&#125;#ghead a.gb2:hover&#123;color:#fff !important&#125;.sblc&#123;padding-top:5px&#125;.sblc a&#123;display:block;margin:2px 0;margin-left:13px;font-size:11px&#125;.lsbb&#123;background:#eee;border:solid 1px;border-color:#ccc #999 #999 #ccc;height:30px&#125;.lsbb&#123;display:block&#125;.ftl,#fll a&#123;display:inline-block;margin:0 12px&#125;.lsb&#123;background:url(/images/nav_logo229.png) 0 -261px repeat-x;border:none;color:#000;cursor:pointer;height:30px;margin:0;outline:0;font:15px arial,sans-serif;vertical-align:top&#125;.lsb:active&#123;background:#ccc&#125;.lst:focus&#123;outline:none&#125;&lt;/style&gt;&lt;script nonce=&quot;uoSXLrjcvK7lZRFB6pZTzQ==&quot;&gt;&lt;/script&gt;&lt;/head&gt;&lt;body bgcolor=&quot;#fff&quot;&gt;&lt;script nonce=&quot;uoSXLrjcvK7lZRFB6pZTzQ==&quot;&gt;(function()&#123;var src=&apos;/images/nav_logo229.png&apos;;var iesg=false;document.body.onload = function()&#123;window.n &amp;&amp; window.n();if (document.images)&#123;new Image().src=src;&#125;if (!iesg)&#123;document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.focus();&#125;&#125;&#125;)();&lt;/script&gt;&lt;div id=&quot;mngb&quot;&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a class=gb1 href=&quot;http://www.google.com/imghp?hl=en&amp;tab=wi&quot;&gt;Images&lt;/a&gt; &lt;a class=gb1 href=&quot;http://maps.google.com/maps?hl=en&amp;tab=wl&quot;&gt;Maps&lt;/a&gt; &lt;a class=gb1 href=&quot;https://play.google.com/?hl=en&amp;tab=w8&quot;&gt;Play&lt;/a&gt; &lt;a class=gb1 href=&quot;http://www.youtube.com/?gl=US&amp;tab=w1&quot;&gt;YouTube&lt;/a&gt; &lt;a class=gb1 href=&quot;http://news.google.com/nwshp?hl=en&amp;tab=wn&quot;&gt;News&lt;/a&gt; &lt;a class=gb1 href=&quot;https://mail.google.com/mail/?tab=wm&quot;&gt;Gmail&lt;/a&gt; &lt;a class=gb1 href=&quot;https://drive.google.com/?tab=wo&quot;&gt;Drive&lt;/a&gt; &lt;a class=gb1 style=&quot;text-decoration:none&quot; href=&quot;https://www.google.com/intl/en/about/products?tab=wh&quot;&gt;&lt;u&gt;More&lt;/u&gt; &amp;raquo;&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div id=guser width=100%&gt;&lt;nobr&gt;&lt;span id=gbn class=gbi&gt;&lt;/span&gt;&lt;span id=gbf class=gbf&gt;&lt;/span&gt;&lt;span id=gbe&gt;&lt;/span&gt;&lt;a href=&quot;http://www.google.com/history/optout?hl=en&quot; class=gb4&gt;Web History&lt;/a&gt; | &lt;a  href=&quot;/preferences?hl=en&quot; class=gb4&gt;Settings&lt;/a&gt; | &lt;a target=_top id=gb_70 href=&quot;https://accounts.google.com/ServiceLogin?hl=en&amp;passive=true&amp;continue=http://www.google.com/&quot; class=gb4&gt;Sign in&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div class=gbh style=left:0&gt;&lt;/div&gt;&lt;div class=gbh style=right:0&gt;&lt;/div&gt; &lt;/div&gt;&lt;center&gt;&lt;br clear=&quot;all&quot; id=&quot;lgpd&quot;&gt;&lt;div id=&quot;lga&quot;&gt;&lt;img alt=&quot;Google&quot; height=&quot;92&quot; src=&quot;/images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png&quot; style=&quot;padding:28px 0 14px&quot; width=&quot;272&quot; id=&quot;hplogo&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;/div&gt;&lt;form action=&quot;/search&quot; name=&quot;f&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr valign=&quot;top&quot;&gt;&lt;td width=&quot;25%&quot;&gt;&amp;nbsp;&lt;/td&gt;&lt;td align=&quot;center&quot; nowrap=&quot;&quot;&gt;&lt;input name=&quot;ie&quot; value=&quot;ISO-8859-1&quot; type=&quot;hidden&quot;&gt;&lt;input value=&quot;en&quot; name=&quot;hl&quot; type=&quot;hidden&quot;&gt;&lt;input name=&quot;source&quot; type=&quot;hidden&quot; value=&quot;hp&quot;&gt;&lt;input name=&quot;biw&quot; type=&quot;hidden&quot;&gt;&lt;input name=&quot;bih&quot; type=&quot;hidden&quot;&gt;&lt;div class=&quot;ds&quot; style=&quot;height:32px;margin:4px 0&quot;&gt;&lt;input class=&quot;lst&quot; style=&quot;color:#000;margin:0;padding:5px 8px 0 6px;vertical-align:top&quot; autocomplete=&quot;off&quot; value=&quot;&quot; title=&quot;Google Search&quot; maxlength=&quot;2048&quot; name=&quot;q&quot; size=&quot;57&quot;&gt;&lt;/div&gt;&lt;br style=&quot;line-height:0&quot;&gt;&lt;span class=&quot;ds&quot;&gt;&lt;span class=&quot;lsbb&quot;&gt;&lt;input class=&quot;lsb&quot; value=&quot;Google Search&quot; name=&quot;btnG&quot; type=&quot;submit&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;ds&quot;&gt;&lt;span class=&quot;lsbb&quot;&gt;&lt;input class=&quot;lsb&quot; id=&quot;tsuid1&quot; value=&quot;I&apos;m Feeling Lucky&quot; name=&quot;btnI&quot; type=&quot;submit&quot;&gt;&lt;script nonce=&quot;uoSXLrjcvK7lZRFB6pZTzQ==&quot;&gt;(function()&#123;var id=&apos;tsuid1&apos;;document.getElementById(id).onclick = function()&#123;if (this.form.q.value)&#123;this.checked = 1;if (this.form.iflsig)this.form.iflsig.disabled = false;&#125;else top.location=&apos;/doodles/&apos;;&#125;;&#125;)();&lt;/script&gt;&lt;input value=&quot;AAP1E1EAAAAAXjz4CTG7e6kx36Y_FxO2l8lJU04vcprj&quot; name=&quot;iflsig&quot; type=&quot;hidden&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;fl sblc&quot; align=&quot;left&quot; nowrap=&quot;&quot; width=&quot;25%&quot;&gt;&lt;a href=&quot;/advanced_search?hl=en&amp;amp;authuser=0&quot;&gt;Advanced search&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;input id=&quot;gbv&quot; name=&quot;gbv&quot; type=&quot;hidden&quot; value=&quot;1&quot;&gt;&lt;script nonce=&quot;uoSXLrjcvK7lZRFB6pZTzQ==&quot;&gt;(function()&#123;var a,b=&quot;1&quot;;if(document&amp;&amp;document.getElementById)if(&quot;undefined&quot;!=typeof XMLHttpRequest)b=&quot;2&quot;;else if(&quot;undefined&quot;!=typeof ActiveXObject)&#123;var c,d,e=[&quot;MSXML2.XMLHTTP.6.0&quot;,&quot;MSXML2.XMLHTTP.3.0&quot;,&quot;MSXML2.XMLHTTP&quot;,&quot;Microsoft.XMLHTTP&quot;];for(c=0;d=e[c++];)try&#123;new ActiveXObject(d),b=&quot;2&quot;&#125;catch(h)&#123;&#125;&#125;a=b;if(&quot;2&quot;==a&amp;&amp;-1==location.search.indexOf(&quot;&amp;gbv=2&quot;))&#123;var f=google.gbvu,g=document.getElementById(&quot;gbv&quot;);g&amp;&amp;(g.value=a);f&amp;&amp;window.setTimeout(function()&#123;location.href=f&#125;,0)&#125;;&#125;).call(this);&lt;/script&gt;&lt;/form&gt;&lt;div id=&quot;gac_scont&quot;&gt;&lt;/div&gt;&lt;div style=&quot;font-size:83%;min-height:3.5em&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;span id=&quot;footer&quot;&gt;&lt;div style=&quot;font-size:10pt&quot;&gt;&lt;div style=&quot;margin:19px auto;text-align:center&quot; id=&quot;fll&quot;&gt;&lt;a href=&quot;/intl/en/ads/&quot;&gt;Advertising�Programs&lt;/a&gt;&lt;a href=&quot;/services/&quot;&gt;Business Solutions&lt;/a&gt;&lt;a href=&quot;/intl/en/about.html&quot;&gt;About Google&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&quot;color:#767676;font-size:8pt&quot;&gt;&amp;copy; 2020 - &lt;a href=&quot;/intl/en/policies/privacy/&quot;&gt;Privacy&lt;/a&gt; - &lt;a href=&quot;/intl/en/policies/terms/&quot;&gt;Terms&lt;/a&gt;&lt;/p&gt;&lt;/span&gt;&lt;/center&gt;&lt;script nonce=&quot;uoSXLrjcvK7lZRFB6pZTzQ==&quot;&gt;(function()&#123;window.google.cdo=&#123;height:0,width:0&#125;;(function()&#123;var a=window.innerWidth,b=window.innerHeight;if(!a||!b)&#123;var c=window.document,d=&quot;CSS1Compat&quot;==c.compatMode?c.documentElement:c.body;a=d.clientWidth;b=d.clientHeight&#125;a&amp;&amp;b&amp;&amp;(a!=google.cdo.width||b!=google.cdo.height)&amp;&amp;google.log(&quot;&quot;,&quot;&quot;,&quot;/client_204?&amp;atyp=i&amp;biw=&quot;+a+&quot;&amp;bih=&quot;+b+&quot;&amp;ei=&quot;+google.kEI);&#125;).call(this);&#125;)();(function()&#123;var u=&apos;/xjs/_/js/k\\x3dxjs.hp.en_US.0n_29zxlCpM.O/m\\x3dsb_he,d/am\\x3dgAEBNgI/d\\x3d1/rs\\x3dACT90oHecxHL9bZB51ShQC7R1ZUqFxsZtg&apos;;setTimeout(function()&#123;var b=document;var a=&quot;SCRIPT&quot;;&quot;application/xhtml+xml&quot;===b.contentType&amp;&amp;(a=a.toLowerCase());a=b.createElement(a);a.src=u;google.timers&amp;&amp;google.timers.load&amp;&amp;google.tick&amp;&amp;google.tick(&quot;load&quot;,&quot;xjsls&quot;);document.body.appendChild(a)&#125;,0);&#125;)();(function()&#123;window.google.xjsu=&apos;/xjs/_/js/k\\x3dxjs.hp.en_US.0n_29zxlCpM.O/m\\x3dsb_he,d/am\\x3dgAEBNgI/d\\x3d1/rs\\x3dACT90oHecxHL9bZB51ShQC7R1ZUqFxsZtg&apos;;&#125;)();function _DumpException(e)&#123;throw e;&#125;function _F_installCss(c)&#123;&#125;(function()&#123;google.spjs=false;google.snet=true;google.em=[];google.emw=false;google.pdt=0;&#125;)();(function()&#123;var pmc=&apos;&#123;\\x22d\\x22:&#123;&#125;,\\x22sb_he\\x22:&#123;\\x22agen\\x22:true,\\x22cgen\\x22:true,\\x22client\\x22:\\x22heirloom-hp\\x22,\\x22dh\\x22:true,\\x22dhqt\\x22:true,\\x22ds\\x22:\\x22\\x22,\\x22ffql\\x22:\\x22en\\x22,\\x22fl\\x22:true,\\x22host\\x22:\\x22google.com\\x22,\\x22isbh\\x22:28,\\x22jsonp\\x22:true,\\x22msgs\\x22:&#123;\\x22cibl\\x22:\\x22Clear Search\\x22,\\x22dym\\x22:\\x22Did you mean:\\x22,\\x22lcky\\x22:\\x22I\\\\u0026#39;m Feeling Lucky\\x22,\\x22lml\\x22:\\x22Learn more\\x22,\\x22oskt\\x22:\\x22Input tools\\x22,\\x22psrc\\x22:\\x22This search was removed from your \\\\u003Ca href\\x3d\\\\\\x22/history\\\\\\x22\\\\u003EWeb History\\\\u003C/a\\\\u003E\\x22,\\x22psrl\\x22:\\x22Remove\\x22,\\x22sbit\\x22:\\x22Search by image\\x22,\\x22srch\\x22:\\x22Google Search\\x22&#125;,\\x22ovr\\x22:&#123;&#125;,\\x22pq\\x22:\\x22\\x22,\\x22refpd\\x22:true,\\x22rfs\\x22:[],\\x22sbpl\\x22:16,\\x22sbpr\\x22:16,\\x22scd\\x22:10,\\x22stok\\x22:\\x22wtsftaDVqOV_M46qFgM191_LrnQ\\x22,\\x22uhde\\x22:false&#125;&#125;&apos;;google.pmc=JSON.parse(pmc);&#125;)();&lt;/script&gt;        &lt;/body&gt;&lt;/html&gt;\n\nSo, why spring did abstraction java.net.URL?First of all, getting web data using URL is to get resource and getting resource from classpath is to get resource too.\nThat’s the reason why spring abstraction java.net.URL for can get resource from classpath, ServletContext and complex to using URL class for get resource from web.\nThe way how to get resource from classpath.\n123456789101112131415161718192021222324252627@Componentpublic class LoaderRunner implements ApplicationRunner &#123;    @Autowired    ApplicationContext resourceLoader;    @Override    public void run(ApplicationArguments args) throws Exception &#123;        Resource res = resourceLoader.getResource(\"classpath:test.txt\");        if(res.exists())&#123;            String data = \"\";            InputStream inputStream = res.getInputStream();            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);            while (true)&#123;                data = bufferedReader.readLine();                if(data == null) break;                System.out.println(data);            &#125;        &#125;    &#125;&#125;\n\ntext.txt in resource file.\n1hello spring\n\nThe result is like below.\n1hello spring\n\nRecommend way is to prefix where the resource is coming from like below.\n1classpath:test.txt\n","dateCreated":"2020-02-24T23:18:36-08:00","dateModified":"2020-02-24T23:33:33-08:00","datePublished":"2020-02-24T23:18:36-08:00","description":"What is ResourceAbstraction?","headline":"Spring Resource Abstraction","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/02/24/Spring-Resource-Abstraction/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2020/02/24/Spring-Resource-Abstraction/","keywords":"Spring"}</script>
+    <meta name="description" content="What is ResourceAbstraction?">
+<meta name="keywords" content="Spring">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Spring Resource Abstraction">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;24&#x2F;Spring-Resource-Abstraction&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="What is ResourceAbstraction?">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-25T07:33:33.440Z">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2020/02/24/spring-resource-abstraction/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            Spring Resource Abstraction
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-02-24T23:18:36-08:00">
+	
+		    Feb 24, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/Spring/">Spring</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>What is ResourceAbstraction?</p>
+<a id="more"></a>
+
+<p>Resource Abstraction is an abstraction of ‘java.net.URL’.</p>
+<h3 id="Java-net-URL"><a href="#Java-net-URL" class="headerlink" title="Java.net.URL"></a>Java.net.URL</h3><p>Java.net.URL class is for get resource in web.</p>
+<p>To use java.net.URL is like below code.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoaderRunner</span> <span class="keyword">implements</span> <span class="title">ApplicationRunner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    ApplicationContext resourceLoader;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(ApplicationArguments args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        URL url = <span class="keyword">new</span> URL(<span class="string">"http://www.google.com"</span>);</span><br><span class="line">        URLConnection urlConnection = url.openConnection();</span><br><span class="line">        InputStream inputStream = urlConnection.getInputStream();</span><br><span class="line">        InputStreamReader inputStreamReader = <span class="keyword">new</span> InputStreamReader(inputStream);</span><br><span class="line">        BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(inputStreamReader);</span><br><span class="line"></span><br><span class="line">        String data = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">            data = bufferedReader.readLine();</span><br><span class="line">            <span class="keyword">if</span>(data == <span class="keyword">null</span>) <span class="keyword">break</span>;</span><br><span class="line">            System.out.println(data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The result is like that and can see google html source.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;&lt;html itemscope=&quot;&quot; itemtype=&quot;http://schema.org/WebPage&quot; lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta content=&quot;Search the world&apos;s information, including webpages, images, videos and more. Google has many special features to help you find exactly what you&apos;re looking for.&quot; name=&quot;description&quot;&gt;&lt;meta content=&quot;noodp&quot; name=&quot;robots&quot;&gt;&lt;meta content=&quot;text/html; charset=UTF-8&quot; http-equiv=&quot;Content-Type&quot;&gt;&lt;meta content=&quot;/images/branding/googleg/1x/googleg_standard_color_128dp.png&quot; itemprop=&quot;image&quot;&gt;&lt;title&gt;Google&lt;/title&gt;&lt;script nonce=&quot;uoSXLrjcvK7lZRFB6pZTzQ==&quot;&gt;(function()&#123;window.google=&#123;kEI:&apos;-ek8XsuqOPrB0PEPzYuGgAQ&apos;,kEXPI:&apos;0,1353746,5663,731,223,5104,207,2414,540,250,10,289,762,175,364,926,440,69,4,60,690,52,75,383,141,416,529,11,477,35,415585,712177,1197775,374,28,329090,1294,12383,4855,32692,15247,867,28684,364,8824,8384,1325,3534,1361,4323,4968,3022,4745,3123,7910,1808,1978,2042,5766,1,3142,5297,2054,920,873,1217,2975,2785,1509,2136,1142,9544,620,2884,20,318,1981,1191,1348,2774,519,400,2277,8,2796,1593,1279,390,652,1170,202,328,149,1103,840,517,1466,8,48,157,663,3438,108,152,52,1135,1,3,2063,606,1839,184,545,1232,143,377,686,1261,747,283,1,145,44,1009,93,328,1284,16,84,417,2426,1639,608,473,1339,29,719,1039,3227,773,2072,7,817,503,4279,2034,6513,2344,318,170,898,303,1720,2459,1226,398,1058,6,281,2842,812,1274,108,1246,1027,566,87,481,908,2,433,142,365,533,314,8,1394,366,2132,265,326,1530,97,3049,62,355,225,691,305,828,1,550,290,176,10,2,23,1696,97,258,210,426,88,185,625,189,183,109,279,40,127,37,90,1,494,7,665,30,932,121,7,238,396,1026,3,377,328,1276,1183,296,395,295,947,501,82,65,70,44,463,408,2,139,199,2,52,20,109,372,145,972,28,5850365,3257,1802637,4194968,2801054,549,333,444,1,2,80,1,900,896,1,8,1,2,2551,1,748,141,59,736,563,1,4265,1,1,1,1,137,1,879,9,305,141,98,83,100,16,67,3365237,20598662,23&apos;,kBL:&apos;TVpb&apos;&#125;;google.sn=&apos;webhp&apos;;google.kHL=&apos;en&apos;;&#125;)();(function()&#123;google.lc=[];google.li=0;google.getEI=function(a)&#123;for(var b;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute(&quot;eid&quot;)));)a=a.parentNode;return b||google.kEI&#125;;google.getLEI=function(a)&#123;for(var b=null;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute(&quot;leid&quot;)));)a=a.parentNode;return b&#125;;google.ml=function()&#123;return null&#125;;google.time=function()&#123;return Date.now()&#125;;google.log=function(a,b,e,c,g)&#123;if(a=google.logUrl(a,b,e,c,g))&#123;b=new Image;var d=google.lc,f=google.li;d[f]=b;b.onerror=b.onload=b.onabort=function()&#123;delete d[f]&#125;;google.vel&amp;&amp;google.vel.lu&amp;&amp;google.vel.lu(a);b.src=a;google.li=f+1&#125;&#125;;google.logUrl=function(a,b,e,c,g)&#123;var d=&quot;&quot;,f=google.ls||&quot;&quot;;e||-1!=b.search(&quot;&amp;ei=&quot;)||(d=&quot;&amp;ei=&quot;+google.getEI(c),-1==b.search(&quot;&amp;lei=&quot;)&amp;&amp;(c=google.getLEI(c))&amp;&amp;(d+=&quot;&amp;lei=&quot;+c));c=&quot;&quot;;!e&amp;&amp;google.cshid&amp;&amp;-1==b.search(&quot;&amp;cshid=&quot;)&amp;&amp;&quot;slh&quot;!=a&amp;&amp;(c=&quot;&amp;cshid=&quot;+google.cshid);a=e||&quot;/&quot;+(g||&quot;gen_204&quot;)+&quot;?atyp=i&amp;ct=&quot;+a+&quot;&amp;cad=&quot;+b+d+f+&quot;&amp;zx=&quot;+google.time()+c;/^http:/i.test(a)&amp;&amp;&quot;https:&quot;==window.location.protocol&amp;&amp;(google.ml(Error(&quot;a&quot;),!1,&#123;src:a,glmm:1&#125;),a=&quot;&quot;);return a&#125;;&#125;).call(this);(function()&#123;google.y=&#123;&#125;;google.x=function(a,b)&#123;if(a)var c=a.id;else&#123;do c=Math.random();while(google.y[c])&#125;google.y[c]=[a,b];return!1&#125;;google.lm=[];google.plm=function(a)&#123;google.lm.push.apply(google.lm,a)&#125;;google.lq=[];google.load=function(a,b,c)&#123;google.lq.push([[a],b,c])&#125;;google.loadAll=function(a,b)&#123;google.lq.push([a,b])&#125;;&#125;).call(this);google.f=&#123;&#125;;(function()&#123;</span><br><span class="line">document.documentElement.addEventListener(&quot;submit&quot;,function(b)&#123;var a;if(a=b.target)&#123;var c=a.getAttribute(&quot;data-submitfalse&quot;);a=&quot;1&quot;==c||&quot;q&quot;==c&amp;&amp;!a.elements.q.value?!0:!1&#125;else a=!1;a&amp;&amp;(b.preventDefault(),b.stopPropagation())&#125;,!0);document.documentElement.addEventListener(&quot;click&quot;,function(b)&#123;var a;a:&#123;for(a=b.target;a&amp;&amp;a!=document.documentElement;a=a.parentElement)if(&quot;A&quot;==a.tagName)&#123;a=&quot;1&quot;==a.getAttribute(&quot;data-nohref&quot;);break a&#125;a=!1&#125;a&amp;&amp;b.preventDefault()&#125;,!0);&#125;).call(this);</span><br><span class="line">var a=window.location,b=a.href.indexOf(&quot;#&quot;);if(0&lt;=b)&#123;var c=a.href.substring(b+1);/(^|&amp;)q=/.test(c)&amp;&amp;-1==c.indexOf(&quot;#&quot;)&amp;&amp;a.replace(&quot;/search?&quot;+c.replace(/(^|&amp;)fp=[^&amp;]*/g,&quot;&quot;)+&quot;&amp;cad=h&quot;)&#125;;&lt;/script&gt;&lt;style&gt;#gbar,#guser&#123;font-size:13px;padding-top:1px !important;&#125;#gbar&#123;height:22px&#125;#guser&#123;padding-bottom:7px !important;text-align:right&#125;.gbh,.gbd&#123;border-top:1px solid #c9d7f1;font-size:1px&#125;.gbh&#123;height:0;position:absolute;top:24px;width:100%&#125;@media all&#123;.gb1&#123;height:22px;margin-right:.5em;vertical-align:top&#125;#gbar&#123;float:left&#125;&#125;a.gb1,a.gb4&#123;text-decoration:underline !important&#125;a.gb1,a.gb4&#123;color:#00c !important&#125;.gbi .gb4&#123;color:#dd8e27 !important&#125;.gbf .gb4&#123;color:#900 !important&#125;</span><br><span class="line">&lt;/style&gt;&lt;style&gt;body,td,a,p,.h&#123;font-family:arial,sans-serif&#125;body&#123;margin:0;overflow-y:scroll&#125;#gog&#123;padding:3px 8px 0&#125;td&#123;line-height:.8em&#125;.gac_m td&#123;line-height:17px&#125;form&#123;margin-bottom:20px&#125;.h&#123;color:#36c&#125;.q&#123;color:#00c&#125;.ts td&#123;padding:0&#125;.ts&#123;border-collapse:collapse&#125;em&#123;font-weight:bold;font-style:normal&#125;.lst&#123;height:25px;width:496px&#125;.gsfi,.lst&#123;font:18px arial,sans-serif&#125;.gsfs&#123;font:17px arial,sans-serif&#125;.ds&#123;display:inline-box;display:inline-block;margin:3px 0 4px;margin-left:4px&#125;input&#123;font-family:inherit&#125;a.gb1,a.gb2,a.gb3,a.gb4&#123;color:#11c !important&#125;body&#123;background:#fff;color:#000&#125;a&#123;color:#11c;text-decoration:none&#125;a:hover,a:active&#123;text-decoration:underline&#125;.fl a&#123;color:#36c&#125;a:visited&#123;color:#551a8b&#125;a.gb1,a.gb4&#123;text-decoration:underline&#125;a.gb3:hover&#123;text-decoration:none&#125;#ghead a.gb2:hover&#123;color:#fff !important&#125;.sblc&#123;padding-top:5px&#125;.sblc a&#123;display:block;margin:2px 0;margin-left:13px;font-size:11px&#125;.lsbb&#123;background:#eee;border:solid 1px;border-color:#ccc #999 #999 #ccc;height:30px&#125;.lsbb&#123;display:block&#125;.ftl,#fll a&#123;display:inline-block;margin:0 12px&#125;.lsb&#123;background:url(/images/nav_logo229.png) 0 -261px repeat-x;border:none;color:#000;cursor:pointer;height:30px;margin:0;outline:0;font:15px arial,sans-serif;vertical-align:top&#125;.lsb:active&#123;background:#ccc&#125;.lst:focus&#123;outline:none&#125;&lt;/style&gt;&lt;script nonce=&quot;uoSXLrjcvK7lZRFB6pZTzQ==&quot;&gt;&lt;/script&gt;&lt;/head&gt;&lt;body bgcolor=&quot;#fff&quot;&gt;&lt;script nonce=&quot;uoSXLrjcvK7lZRFB6pZTzQ==&quot;&gt;(function()&#123;var src=&apos;/images/nav_logo229.png&apos;;var iesg=false;document.body.onload = function()&#123;window.n &amp;&amp; window.n();if (document.images)&#123;new Image().src=src;&#125;</span><br><span class="line">if (!iesg)&#123;document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.focus();&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;)();&lt;/script&gt;&lt;div id=&quot;mngb&quot;&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a class=gb1 href=&quot;http://www.google.com/imghp?hl=en&amp;tab=wi&quot;&gt;Images&lt;/a&gt; &lt;a class=gb1 href=&quot;http://maps.google.com/maps?hl=en&amp;tab=wl&quot;&gt;Maps&lt;/a&gt; &lt;a class=gb1 href=&quot;https://play.google.com/?hl=en&amp;tab=w8&quot;&gt;Play&lt;/a&gt; &lt;a class=gb1 href=&quot;http://www.youtube.com/?gl=US&amp;tab=w1&quot;&gt;YouTube&lt;/a&gt; &lt;a class=gb1 href=&quot;http://news.google.com/nwshp?hl=en&amp;tab=wn&quot;&gt;News&lt;/a&gt; &lt;a class=gb1 href=&quot;https://mail.google.com/mail/?tab=wm&quot;&gt;Gmail&lt;/a&gt; &lt;a class=gb1 href=&quot;https://drive.google.com/?tab=wo&quot;&gt;Drive&lt;/a&gt; &lt;a class=gb1 style=&quot;text-decoration:none&quot; href=&quot;https://www.google.com/intl/en/about/products?tab=wh&quot;&gt;&lt;u&gt;More&lt;/u&gt; &amp;raquo;&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div id=guser width=100%&gt;&lt;nobr&gt;&lt;span id=gbn class=gbi&gt;&lt;/span&gt;&lt;span id=gbf class=gbf&gt;&lt;/span&gt;&lt;span id=gbe&gt;&lt;/span&gt;&lt;a href=&quot;http://www.google.com/history/optout?hl=en&quot; class=gb4&gt;Web History&lt;/a&gt; | &lt;a  href=&quot;/preferences?hl=en&quot; class=gb4&gt;Settings&lt;/a&gt; | &lt;a target=_top id=gb_70 href=&quot;https://accounts.google.com/ServiceLogin?hl=en&amp;passive=true&amp;continue=http://www.google.com/&quot; class=gb4&gt;Sign in&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div class=gbh style=left:0&gt;&lt;/div&gt;&lt;div class=gbh style=right:0&gt;&lt;/div&gt; &lt;/div&gt;&lt;center&gt;&lt;br clear=&quot;all&quot; id=&quot;lgpd&quot;&gt;&lt;div id=&quot;lga&quot;&gt;&lt;img alt=&quot;Google&quot; height=&quot;92&quot; src=&quot;/images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png&quot; style=&quot;padding:28px 0 14px&quot; width=&quot;272&quot; id=&quot;hplogo&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;/div&gt;&lt;form action=&quot;/search&quot; name=&quot;f&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr valign=&quot;top&quot;&gt;&lt;td width=&quot;25%&quot;&gt;&amp;nbsp;&lt;/td&gt;&lt;td align=&quot;center&quot; nowrap=&quot;&quot;&gt;&lt;input name=&quot;ie&quot; value=&quot;ISO-8859-1&quot; type=&quot;hidden&quot;&gt;&lt;input value=&quot;en&quot; name=&quot;hl&quot; type=&quot;hidden&quot;&gt;&lt;input name=&quot;source&quot; type=&quot;hidden&quot; value=&quot;hp&quot;&gt;&lt;input name=&quot;biw&quot; type=&quot;hidden&quot;&gt;&lt;input name=&quot;bih&quot; type=&quot;hidden&quot;&gt;&lt;div class=&quot;ds&quot; style=&quot;height:32px;margin:4px 0&quot;&gt;&lt;input class=&quot;lst&quot; style=&quot;color:#000;margin:0;padding:5px 8px 0 6px;vertical-align:top&quot; autocomplete=&quot;off&quot; value=&quot;&quot; title=&quot;Google Search&quot; maxlength=&quot;2048&quot; name=&quot;q&quot; size=&quot;57&quot;&gt;&lt;/div&gt;&lt;br style=&quot;line-height:0&quot;&gt;&lt;span class=&quot;ds&quot;&gt;&lt;span class=&quot;lsbb&quot;&gt;&lt;input class=&quot;lsb&quot; value=&quot;Google Search&quot; name=&quot;btnG&quot; type=&quot;submit&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;ds&quot;&gt;&lt;span class=&quot;lsbb&quot;&gt;&lt;input class=&quot;lsb&quot; id=&quot;tsuid1&quot; value=&quot;I&apos;m Feeling Lucky&quot; name=&quot;btnI&quot; type=&quot;submit&quot;&gt;&lt;script nonce=&quot;uoSXLrjcvK7lZRFB6pZTzQ==&quot;&gt;(function()&#123;var id=&apos;tsuid1&apos;;document.getElementById(id).onclick = function()&#123;if (this.form.q.value)&#123;this.checked = 1;if (this.form.iflsig)this.form.iflsig.disabled = false;&#125;</span><br><span class="line">else top.location=&apos;/doodles/&apos;;&#125;;&#125;)();&lt;/script&gt;&lt;input value=&quot;AAP1E1EAAAAAXjz4CTG7e6kx36Y_FxO2l8lJU04vcprj&quot; name=&quot;iflsig&quot; type=&quot;hidden&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;fl sblc&quot; align=&quot;left&quot; nowrap=&quot;&quot; width=&quot;25%&quot;&gt;&lt;a href=&quot;/advanced_search?hl=en&amp;amp;authuser=0&quot;&gt;Advanced search&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;input id=&quot;gbv&quot; name=&quot;gbv&quot; type=&quot;hidden&quot; value=&quot;1&quot;&gt;&lt;script nonce=&quot;uoSXLrjcvK7lZRFB6pZTzQ==&quot;&gt;(function()&#123;var a,b=&quot;1&quot;;if(document&amp;&amp;document.getElementById)if(&quot;undefined&quot;!=typeof XMLHttpRequest)b=&quot;2&quot;;else if(&quot;undefined&quot;!=typeof ActiveXObject)&#123;var c,d,e=[&quot;MSXML2.XMLHTTP.6.0&quot;,&quot;MSXML2.XMLHTTP.3.0&quot;,&quot;MSXML2.XMLHTTP&quot;,&quot;Microsoft.XMLHTTP&quot;];for(c=0;d=e[c++];)try&#123;new ActiveXObject(d),b=&quot;2&quot;&#125;catch(h)&#123;&#125;&#125;a=b;if(&quot;2&quot;==a&amp;&amp;-1==location.search.indexOf(&quot;&amp;gbv=2&quot;))&#123;var f=google.gbvu,g=document.getElementById(&quot;gbv&quot;);g&amp;&amp;(g.value=a);f&amp;&amp;window.setTimeout(function()&#123;location.href=f&#125;,0)&#125;;&#125;).call(this);&lt;/script&gt;&lt;/form&gt;&lt;div id=&quot;gac_scont&quot;&gt;&lt;/div&gt;&lt;div style=&quot;font-size:83%;min-height:3.5em&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;span id=&quot;footer&quot;&gt;&lt;div style=&quot;font-size:10pt&quot;&gt;&lt;div style=&quot;margin:19px auto;text-align:center&quot; id=&quot;fll&quot;&gt;&lt;a href=&quot;/intl/en/ads/&quot;&gt;Advertising�Programs&lt;/a&gt;&lt;a href=&quot;/services/&quot;&gt;Business Solutions&lt;/a&gt;&lt;a href=&quot;/intl/en/about.html&quot;&gt;About Google&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&quot;color:#767676;font-size:8pt&quot;&gt;&amp;copy; 2020 - &lt;a href=&quot;/intl/en/policies/privacy/&quot;&gt;Privacy&lt;/a&gt; - &lt;a href=&quot;/intl/en/policies/terms/&quot;&gt;Terms&lt;/a&gt;&lt;/p&gt;&lt;/span&gt;&lt;/center&gt;&lt;script nonce=&quot;uoSXLrjcvK7lZRFB6pZTzQ==&quot;&gt;(function()&#123;window.google.cdo=&#123;height:0,width:0&#125;;(function()&#123;var a=window.innerWidth,b=window.innerHeight;if(!a||!b)&#123;var c=window.document,d=&quot;CSS1Compat&quot;==c.compatMode?c.documentElement:c.body;a=d.clientWidth;b=d.clientHeight&#125;a&amp;&amp;b&amp;&amp;(a!=google.cdo.width||b!=google.cdo.height)&amp;&amp;google.log(&quot;&quot;,&quot;&quot;,&quot;/client_204?&amp;atyp=i&amp;biw=&quot;+a+&quot;&amp;bih=&quot;+b+&quot;&amp;ei=&quot;+google.kEI);&#125;).call(this);&#125;)();(function()&#123;var u=&apos;/xjs/_/js/k\x3dxjs.hp.en_US.0n_29zxlCpM.O/m\x3dsb_he,d/am\x3dgAEBNgI/d\x3d1/rs\x3dACT90oHecxHL9bZB51ShQC7R1ZUqFxsZtg&apos;;</span><br><span class="line">setTimeout(function()&#123;var b=document;var a=&quot;SCRIPT&quot;;&quot;application/xhtml+xml&quot;===b.contentType&amp;&amp;(a=a.toLowerCase());a=b.createElement(a);a.src=u;google.timers&amp;&amp;google.timers.load&amp;&amp;google.tick&amp;&amp;google.tick(&quot;load&quot;,&quot;xjsls&quot;);document.body.appendChild(a)&#125;,0);&#125;)();(function()&#123;window.google.xjsu=&apos;/xjs/_/js/k\x3dxjs.hp.en_US.0n_29zxlCpM.O/m\x3dsb_he,d/am\x3dgAEBNgI/d\x3d1/rs\x3dACT90oHecxHL9bZB51ShQC7R1ZUqFxsZtg&apos;;&#125;)();function _DumpException(e)&#123;throw e;&#125;</span><br><span class="line">function _F_installCss(c)&#123;&#125;</span><br><span class="line">(function()&#123;google.spjs=false;google.snet=true;google.em=[];google.emw=false;google.pdt=0;&#125;)();(function()&#123;var pmc=&apos;&#123;\x22d\x22:&#123;&#125;,\x22sb_he\x22:&#123;\x22agen\x22:true,\x22cgen\x22:true,\x22client\x22:\x22heirloom-hp\x22,\x22dh\x22:true,\x22dhqt\x22:true,\x22ds\x22:\x22\x22,\x22ffql\x22:\x22en\x22,\x22fl\x22:true,\x22host\x22:\x22google.com\x22,\x22isbh\x22:28,\x22jsonp\x22:true,\x22msgs\x22:&#123;\x22cibl\x22:\x22Clear Search\x22,\x22dym\x22:\x22Did you mean:\x22,\x22lcky\x22:\x22I\\u0026#39;m Feeling Lucky\x22,\x22lml\x22:\x22Learn more\x22,\x22oskt\x22:\x22Input tools\x22,\x22psrc\x22:\x22This search was removed from your \\u003Ca href\x3d\\\x22/history\\\x22\\u003EWeb History\\u003C/a\\u003E\x22,\x22psrl\x22:\x22Remove\x22,\x22sbit\x22:\x22Search by image\x22,\x22srch\x22:\x22Google Search\x22&#125;,\x22ovr\x22:&#123;&#125;,\x22pq\x22:\x22\x22,\x22refpd\x22:true,\x22rfs\x22:[],\x22sbpl\x22:16,\x22sbpr\x22:16,\x22scd\x22:10,\x22stok\x22:\x22wtsftaDVqOV_M46qFgM191_LrnQ\x22,\x22uhde\x22:false&#125;&#125;&apos;;google.pmc=JSON.parse(pmc);&#125;)();&lt;/script&gt;        &lt;/body&gt;&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>So, why spring did abstraction java.net.URL?<br>First of all, getting web data using URL is to get resource and getting resource from classpath is to get resource too.</p>
+<p>That’s the reason why spring abstraction java.net.URL for can get resource from classpath, ServletContext and complex to using URL class for get resource from web.</p>
+<p>The way how to get resource from classpath.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoaderRunner</span> <span class="keyword">implements</span> <span class="title">ApplicationRunner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    ApplicationContext resourceLoader;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(ApplicationArguments args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">        Resource res = resourceLoader.getResource(<span class="string">"classpath:test.txt"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(res.exists())&#123;</span><br><span class="line"></span><br><span class="line">            String data = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">            InputStream inputStream = res.getInputStream();</span><br><span class="line">            InputStreamReader inputStreamReader = <span class="keyword">new</span> InputStreamReader(inputStream);</span><br><span class="line">            BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(inputStreamReader);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">                data = bufferedReader.readLine();</span><br><span class="line">                <span class="keyword">if</span>(data == <span class="keyword">null</span>) <span class="keyword">break</span>;</span><br><span class="line">                System.out.println(data);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>text.txt in resource file.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello spring</span><br></pre></td></tr></table></figure>
+
+<p>The result is like below.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello spring</span><br></pre></td></tr></table></figure>
+
+<p>Recommend way is to prefix where the resource is coming from like below.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classpath:test.txt</span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Spring/" rel="tag">Spring</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Spring-Data-binding/" data-tooltip="Spring Data binding" aria-label="PREVIOUS: Spring Data binding">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Spring-IOC-ResourceLoader/" data-tooltip="Spring IOC-ResourceLoader" aria-label="NEXT: Spring IOC-ResourceLoader">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/Spring-Resource-Abstraction/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/Spring-Resource-Abstraction/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/Spring-Resource-Abstraction/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Spring-Data-binding/" data-tooltip="Spring Data binding" aria-label="PREVIOUS: Spring Data binding">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Spring-IOC-ResourceLoader/" data-tooltip="Spring IOC-ResourceLoader" aria-label="NEXT: Spring IOC-ResourceLoader">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/Spring-Resource-Abstraction/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/Spring-Resource-Abstraction/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/Spring-Resource-Abstraction/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/24/Spring-Resource-Abstraction/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/02/24/Spring-Resource-Abstraction/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/02/24/Spring-Resource-Abstraction/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>Univera in Seattle</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>UNIVERA</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

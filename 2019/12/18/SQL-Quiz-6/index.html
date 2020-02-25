@@ -22,13 +22,8 @@
 <meta property="og:site_name" content="Ewan">
 <meta property="og:description" content="SQL Quiz 6">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;SQL-Quiz-6&#x2F;1.PNG">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;SQL-Quiz-6&#x2F;2.PNG">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;SQL-Quiz-6&#x2F;3.PNG">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;SQL-Quiz-6&#x2F;4.PNG">
 <meta property="og:updated_time" content="2020-01-03T06:19:48.275Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;SQL-Quiz-6&#x2F;1.PNG">
     
     
         
@@ -184,18 +179,18 @@
             <p>SQL Quiz 6</p>
 <a id="more"></a>
 
-<h3 id="1-In-EMP-table-print-SAL-value-as-the-cumulate-in-the-EMPNO-ascending-sort-order-as-example-in-the-below"><a href="#1-In-EMP-table-print-SAL-value-as-the-cumulate-in-the-EMPNO-ascending-sort-order-as-example-in-the-below" class="headerlink" title="1. In EMP table, print SAL value as the cumulate in the EMPNO ascending sort order as example in the below."></a>1. In EMP table, print SAL value as the cumulate in the EMPNO ascending sort order as example in the below.</h3><img src="/2019/12/18/SQL-Quiz-6/1.PNG" class>
+<h3 id="1-In-EMP-table-print-SAL-value-as-the-cumulate-in-the-EMPNO-ascending-sort-order-as-example-in-the-below"><a href="#1-In-EMP-table-print-SAL-value-as-the-cumulate-in-the-EMPNO-ascending-sort-order-as-example-in-the-below" class="headerlink" title="1. In EMP table, print SAL value as the cumulate in the EMPNO ascending sort order as example in the below."></a>1. In EMP table, print SAL value as the cumulate in the EMPNO ascending sort order as example in the below.</h3>
 
 
 
-<h3 id="2-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below"><a href="#2-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below" class="headerlink" title="2. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below."></a>2. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below.</h3><img src="/2019/12/18/SQL-Quiz-6/2.PNG" class>
+<h3 id="2-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below"><a href="#2-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below" class="headerlink" title="2. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below."></a>2. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below.</h3>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT job,</span><br><span class="line">       ename,</span><br><span class="line">       sal,</span><br><span class="line">       ROW_NUMBER() OVER(ORDER BY SAL) AS rank</span><br><span class="line">  FROM emp</span><br><span class="line"> WHERE job = &apos;SALESMAN&apos;</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below"><a href="#3-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below" class="headerlink" title="3. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below."></a>3. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below.</h3><img src="/2019/12/18/SQL-Quiz-6/3.PNG" class>
+<h3 id="3-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below"><a href="#3-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below" class="headerlink" title="3. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below."></a>3. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below.</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT job,</span><br><span class="line">       ename,</span><br><span class="line">       sal,</span><br><span class="line">       RANK() OVER(ORDER BY SAL) AS rank</span><br><span class="line">  FROM emp</span><br><span class="line"> WHERE job = &apos;SALESMAN&apos;</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below"><a href="#4-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below" class="headerlink" title="4. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below."></a>4. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below.</h3><img src="/2019/12/18/SQL-Quiz-6/4.PNG" class>
+<h3 id="4-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below"><a href="#4-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below" class="headerlink" title="4. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below."></a>4. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below.</h3>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT job,</span><br><span class="line">       ename,</span><br><span class="line">       sal,</span><br><span class="line">       DENSE_RANK() OVER(ORDER BY SAL) AS rank</span><br><span class="line">  FROM emp</span><br><span class="line"> WHERE job = &apos;SALESMAN&apos;</span><br></pre></td></tr></table></figure>
 
