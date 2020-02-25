@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>SQL Quiz 4 - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"SQL Quiz 4\n\n\n1. Print number of 5 employee in high order of SAL at EMP table in the example below.\n123456SELECT *  FROM (SELECT *          FROM emp         ORDER BY sal DESC        ) WHERE ROWNUM &lt;= 5\n\n2. When each employee ranks in the SAL order in the EMP table, print the ranks 6th to 10th as in the example below.\n12345SELECT *  FROM ( SELECT empno, ename, job, mgr, hiredate, sal, comm, deptno, RANK() OVER(ORDER BY sal DESC) AS rn           FROM emp                 ) WHERE RN &gt;=6 AND RN &lt;= 10\n\n3. Explain why the result which in the example below is 0 matches.123SELECT ROWNUM, A.*  FROM EMP A WHERE ROWNUM &gt; 5\n\n\n\nRownum keyword execute after ‘where’ execute finished.\n\n\n4. Print example which in the vertical example to horizontal example below.\n\n123456789101112131415161718192021222324252627282930SELECT MAX(CASE grade        WHEN 1        THEN 700 ||&apos;~&apos;|| 1200        END        ) AS GRADE_1        ,        MAX(CASE grade        WHEN 2        THEN 1201 ||&apos;~&apos;|| 1400        END        ) AS GRADE_2        ,        MAX(CASE grade        WHEN 3        THEN 1401 ||&apos;~&apos;|| 2000        END        ) AS GRADE_3        ,        MAX(CASE grade        WHEN 4        THEN 2001 ||&apos;~&apos;|| 3000        END        ) AS GRADE_4        ,        MAX(CASE grade        WHEN 5        THEN 3001 ||&apos;~&apos;|| 9999        END        ) AS GRADE_5  FROM salgrade\n\n5. First, make SALGRADE_TEMP table as example below, Print example which in the horizontal example to vertical example below.\n\n1234567891011121314CREATE TABLE HORIZONAL_SALGRADE(    GRADE_1 VARCHAR2(30),    GRADE_2 VARCHAR2(30),    GRADE_3 VARCHAR2(30),    GRADE_4 VARCHAR2(30),    GRADE_5 VARCHAR2(30))INSERT INTO horizonal_salgrade(    grade_1,grade_2,grade_3,grade_4,grade_5)VALUES (    &apos;700~1200&apos;,&apos;1201~1400&apos;,&apos;1401~2000&apos;,&apos;2001~3000&apos;,&apos;3001~9999&apos;)\n\n12\n","dateCreated":"2019-12-05T23:50:47-08:00","dateModified":"2019-12-18T20:38:53-08:00","datePublished":"2019-12-05T23:50:47-08:00","description":"SQL Quiz 4","headline":"SQL Quiz 4","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2019/12/05/SQL-Quiz-4/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2019/12/05/SQL-Quiz-4/","keywords":"Oracle"}</script>
+    <meta name="description" content="SQL Quiz 4">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="SQL Quiz 4">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;SQL-Quiz-4&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="SQL Quiz 4">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;SQL-Quiz-4&#x2F;1.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;SQL-Quiz-4&#x2F;2.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;SQL-Quiz-4&#x2F;4.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;SQL-Quiz-4&#x2F;5.PNG">
+<meta property="og:updated_time" content="2019-12-19T04:38:53.735Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;SQL-Quiz-4&#x2F;1.PNG">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2019/12/05/sql-quiz-4/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            SQL Quiz 4
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2019-12-05T23:50:47-08:00">
+	
+		    Dec 05, 2019
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/Oracle/">Oracle</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>SQL Quiz 4</p>
+<a id="more"></a>
+
+<h3 id="1-Print-number-of-5-employee-in-high-order-of-SAL-at-EMP-table-in-the-example-below"><a href="#1-Print-number-of-5-employee-in-high-order-of-SAL-at-EMP-table-in-the-example-below" class="headerlink" title="1. Print number of 5 employee in high order of SAL at EMP table in the example below."></a>1. Print number of 5 employee in high order of SAL at EMP table in the example below.</h3><img src="/2019/12/05/SQL-Quiz-4/1.PNG" class>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">  FROM (SELECT *</span><br><span class="line">          FROM emp</span><br><span class="line">         ORDER BY sal DESC</span><br><span class="line">        )</span><br><span class="line"> WHERE ROWNUM &lt;= 5</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-When-each-employee-ranks-in-the-SAL-order-in-the-EMP-table-print-the-ranks-6th-to-10th-as-in-the-example-below"><a href="#2-When-each-employee-ranks-in-the-SAL-order-in-the-EMP-table-print-the-ranks-6th-to-10th-as-in-the-example-below" class="headerlink" title="2. When each employee ranks in the SAL order in the EMP table, print the ranks 6th to 10th as in the example below."></a>2. When each employee ranks in the SAL order in the EMP table, print the ranks 6th to 10th as in the example below.</h3><img src="/2019/12/05/SQL-Quiz-4/2.PNG" class>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">  FROM ( SELECT empno, ename, job, mgr, hiredate, sal, comm, deptno, RANK() OVER(ORDER BY sal DESC) AS rn</span><br><span class="line">           FROM emp         </span><br><span class="line">        )</span><br><span class="line"> WHERE RN &gt;=6 AND RN &lt;= 10</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Explain-why-the-result-which-in-the-example-below-is-0-matches"><a href="#3-Explain-why-the-result-which-in-the-example-below-is-0-matches" class="headerlink" title="3. Explain why the result which in the example below is 0 matches."></a>3. Explain why the result which in the example below is 0 matches.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROWNUM, A.*</span><br><span class="line">  FROM EMP A</span><br><span class="line"> WHERE ROWNUM &gt; 5</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Rownum keyword execute after ‘where’ execute finished.</p>
+</blockquote>
+</blockquote>
+<h3 id="4-Print-example-which-in-the-vertical-example-to-horizontal-example-below"><a href="#4-Print-example-which-in-the-vertical-example-to-horizontal-example-below" class="headerlink" title="4. Print example which in the vertical example to horizontal example below."></a>4. Print example which in the vertical example to horizontal example below.</h3><img src="/2019/12/05/SQL-Quiz-4/4.PNG" class>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">SELECT MAX(CASE grade</span><br><span class="line">        WHEN 1</span><br><span class="line">        THEN 700 ||&apos;~&apos;|| 1200</span><br><span class="line">        END</span><br><span class="line">        ) AS GRADE_1</span><br><span class="line">        ,</span><br><span class="line">        MAX(CASE grade</span><br><span class="line">        WHEN 2</span><br><span class="line">        THEN 1201 ||&apos;~&apos;|| 1400</span><br><span class="line">        END</span><br><span class="line">        ) AS GRADE_2</span><br><span class="line">        ,</span><br><span class="line">        MAX(CASE grade</span><br><span class="line">        WHEN 3</span><br><span class="line">        THEN 1401 ||&apos;~&apos;|| 2000</span><br><span class="line">        END</span><br><span class="line">        ) AS GRADE_3</span><br><span class="line">        ,</span><br><span class="line">        MAX(CASE grade</span><br><span class="line">        WHEN 4</span><br><span class="line">        THEN 2001 ||&apos;~&apos;|| 3000</span><br><span class="line">        END</span><br><span class="line">        ) AS GRADE_4</span><br><span class="line">        ,</span><br><span class="line">        MAX(CASE grade</span><br><span class="line">        WHEN 5</span><br><span class="line">        THEN 3001 ||&apos;~&apos;|| 9999</span><br><span class="line">        END</span><br><span class="line">        ) AS GRADE_5</span><br><span class="line">  FROM salgrade</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-First-make-SALGRADE-TEMP-table-as-example-below-Print-example-which-in-the-horizontal-example-to-vertical-example-below"><a href="#5-First-make-SALGRADE-TEMP-table-as-example-below-Print-example-which-in-the-horizontal-example-to-vertical-example-below" class="headerlink" title="5. First, make SALGRADE_TEMP table as example below, Print example which in the horizontal example to vertical example below."></a>5. First, make SALGRADE_TEMP table as example below, Print example which in the horizontal example to vertical example below.</h3><img src="/2019/12/05/SQL-Quiz-4/5.PNG" class>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE HORIZONAL_SALGRADE(</span><br><span class="line">    GRADE_1 VARCHAR2(30),</span><br><span class="line">    GRADE_2 VARCHAR2(30),</span><br><span class="line">    GRADE_3 VARCHAR2(30),</span><br><span class="line">    GRADE_4 VARCHAR2(30),</span><br><span class="line">    GRADE_5 VARCHAR2(30)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">INSERT INTO horizonal_salgrade(</span><br><span class="line">    grade_1,grade_2,grade_3,grade_4,grade_5</span><br><span class="line">)</span><br><span class="line">VALUES (</span><br><span class="line">    &apos;700~1200&apos;,&apos;1201~1400&apos;,&apos;1401~2000&apos;,&apos;2001~3000&apos;,&apos;3001~9999&apos;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Oracle/" rel="tag">Oracle</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/09/SQL-Quiz-5/" data-tooltip="SQL Quiz 5" aria-label="PREVIOUS: SQL Quiz 5">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/01/SQL-Quiz-3/" data-tooltip="SQL Quiz 3" aria-label="NEXT: SQL Quiz 3">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/05/SQL-Quiz-4/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/05/SQL-Quiz-4/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/05/SQL-Quiz-4/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/09/SQL-Quiz-5/" data-tooltip="SQL Quiz 5" aria-label="PREVIOUS: SQL Quiz 5">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/01/SQL-Quiz-3/" data-tooltip="SQL Quiz 3" aria-label="NEXT: SQL Quiz 3">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/05/SQL-Quiz-4/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/05/SQL-Quiz-4/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/05/SQL-Quiz-4/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/05/SQL-Quiz-4/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/05/SQL-Quiz-4/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/05/SQL-Quiz-4/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>Univera in Seattle</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>UNIVERA</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

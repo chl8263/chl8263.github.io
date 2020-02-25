@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>SQL Quiz 2 - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"SQL Quiz 2\n\n\n1. Print DNAME, EMPNO, ENAME for each employee from EMP table as in the example below. (Do not print employee without department when joining tables)\n123456SELECT DNAME, EMPNO,ENAME  FROM emp INNER JOIN dept    ON emp.deptno = dept.deptno WHERE emp.deptno IS NOT NULL ORDER BY DNAME\n\n2. Print DNAME, EMPNO, ENAME for each employee from EMP table as in the example below. (Print employee without department when joining tables)\n12345SELECT DNAME, EMPNO,ENAME  FROM emp INNER JOIN dept    ON emp.deptno = dept.deptno ORDER BY DNAME\n\n3. Print employee information in the department location ‘DALLAS’, ‘CHICAGO’ as in the example below.\n123456SELECT dept.loc, emp.deptno, emp.ename  FROM emp INNER JOIN dept    ON emp.deptno = dept.deptno WHERE dept.loc IN (&apos;DALLAS&apos;, &apos;CHICAGO&apos;) ORDER By dept.loc\n\n4. Print max SAL value in the department as in the example below. (Do not print employee without department)\n123SELECT deptno, MAX(sal) as SAL  FROM emp GROUP BY deptno\n\n5. Print employee information receiving the max SAL value in the department as the example below. (Except employee without department)\n12345678SELECT deptno, sal ,empno , ename, job  FROM emp WHERE (deptno, sal) IN (SELECT deptno, MAX(sal)                           FROM emp                          WHERE deptno IS NOT NULL                          GROUP BY deptno                        ) ORDER BY deptno\n","dateCreated":"2019-12-01T13:07:45-08:00","dateModified":"2019-12-18T20:38:46-08:00","datePublished":"2019-12-01T13:07:45-08:00","description":"SQL Quiz 2","headline":"SQL Quiz 2","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2019/12/01/SQL-Quiz-2/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2019/12/01/SQL-Quiz-2/","keywords":"Oracle"}</script>
+    <meta name="description" content="SQL Quiz 2">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="SQL Quiz 2">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;SQL-Quiz-2&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="SQL Quiz 2">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;SQL-Quiz-2&#x2F;1.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;SQL-Quiz-2&#x2F;2.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;SQL-Quiz-2&#x2F;3.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;SQL-Quiz-2&#x2F;4.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;SQL-Quiz-2&#x2F;5.PNG">
+<meta property="og:updated_time" content="2019-12-19T04:38:46.203Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;SQL-Quiz-2&#x2F;1.PNG">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2019/12/01/sql-quiz-2/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            SQL Quiz 2
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2019-12-01T13:07:45-08:00">
+	
+		    Dec 01, 2019
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/Oracle/">Oracle</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>SQL Quiz 2</p>
+<a id="more"></a>
+
+<h3 id="1-Print-DNAME-EMPNO-ENAME-for-each-employee-from-EMP-table-as-in-the-example-below-Do-not-print-employee-without-department-when-joining-tables"><a href="#1-Print-DNAME-EMPNO-ENAME-for-each-employee-from-EMP-table-as-in-the-example-below-Do-not-print-employee-without-department-when-joining-tables" class="headerlink" title="1. Print DNAME, EMPNO, ENAME for each employee from EMP table as in the example below. (Do not print employee without department when joining tables)"></a>1. Print DNAME, EMPNO, ENAME for each employee from EMP table as in the example below. (Do not print employee without department when joining tables)</h3><img src="/2019/12/01/SQL-Quiz-2/1.PNG" class>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT DNAME, EMPNO,ENAME</span><br><span class="line">  FROM emp</span><br><span class="line"> INNER JOIN dept</span><br><span class="line">    ON emp.deptno = dept.deptno</span><br><span class="line"> WHERE emp.deptno IS NOT NULL</span><br><span class="line"> ORDER BY DNAME</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Print-DNAME-EMPNO-ENAME-for-each-employee-from-EMP-table-as-in-the-example-below-Print-employee-without-department-when-joining-tables"><a href="#2-Print-DNAME-EMPNO-ENAME-for-each-employee-from-EMP-table-as-in-the-example-below-Print-employee-without-department-when-joining-tables" class="headerlink" title="2. Print DNAME, EMPNO, ENAME for each employee from EMP table as in the example below. (Print employee without department when joining tables)"></a>2. Print DNAME, EMPNO, ENAME for each employee from EMP table as in the example below. (Print employee without department when joining tables)</h3><img src="/2019/12/01/SQL-Quiz-2/2.PNG" class>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT DNAME, EMPNO,ENAME</span><br><span class="line">  FROM emp</span><br><span class="line"> INNER JOIN dept</span><br><span class="line">    ON emp.deptno = dept.deptno</span><br><span class="line"> ORDER BY DNAME</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Print-employee-information-in-the-department-location-‘DALLAS’-‘CHICAGO’-as-in-the-example-below"><a href="#3-Print-employee-information-in-the-department-location-‘DALLAS’-‘CHICAGO’-as-in-the-example-below" class="headerlink" title="3. Print employee information in the department location ‘DALLAS’, ‘CHICAGO’ as in the example below."></a>3. Print employee information in the department location ‘DALLAS’, ‘CHICAGO’ as in the example below.</h3><img src="/2019/12/01/SQL-Quiz-2/3.PNG" class>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT dept.loc, emp.deptno, emp.ename</span><br><span class="line">  FROM emp</span><br><span class="line"> INNER JOIN dept</span><br><span class="line">    ON emp.deptno = dept.deptno</span><br><span class="line"> WHERE dept.loc IN (&apos;DALLAS&apos;, &apos;CHICAGO&apos;)</span><br><span class="line"> ORDER By dept.loc</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Print-max-SAL-value-in-the-department-as-in-the-example-below-Do-not-print-employee-without-department"><a href="#4-Print-max-SAL-value-in-the-department-as-in-the-example-below-Do-not-print-employee-without-department" class="headerlink" title="4. Print max SAL value in the department as in the example below. (Do not print employee without department)"></a>4. Print max SAL value in the department as in the example below. (Do not print employee without department)</h3><img src="/2019/12/01/SQL-Quiz-2/4.PNG" class>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT deptno, MAX(sal) as SAL</span><br><span class="line">  FROM emp</span><br><span class="line"> GROUP BY deptno</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-Print-employee-information-receiving-the-max-SAL-value-in-the-department-as-the-example-below-Except-employee-without-department"><a href="#5-Print-employee-information-receiving-the-max-SAL-value-in-the-department-as-the-example-below-Except-employee-without-department" class="headerlink" title="5. Print employee information receiving the max SAL value in the department as the example below. (Except employee without department)"></a>5. Print employee information receiving the max SAL value in the department as the example below. (Except employee without department)</h3><img src="/2019/12/01/SQL-Quiz-2/5.PNG" class>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT deptno, sal ,empno , ename, job</span><br><span class="line">  FROM emp</span><br><span class="line"> WHERE (deptno, sal) IN (SELECT deptno, MAX(sal)</span><br><span class="line">                           FROM emp</span><br><span class="line">                          WHERE deptno IS NOT NULL</span><br><span class="line">                          GROUP BY deptno</span><br><span class="line">                        )</span><br><span class="line"> ORDER BY deptno</span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Oracle/" rel="tag">Oracle</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/01/SQL-Quiz-3/" data-tooltip="SQL Quiz 3" aria-label="PREVIOUS: SQL Quiz 3">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/11/29/SQL-Quiz-1/" data-tooltip="SQL Quiz 1" aria-label="NEXT: SQL Quiz 1">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/01/SQL-Quiz-2/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/01/SQL-Quiz-2/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/01/SQL-Quiz-2/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/01/SQL-Quiz-3/" data-tooltip="SQL Quiz 3" aria-label="PREVIOUS: SQL Quiz 3">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/11/29/SQL-Quiz-1/" data-tooltip="SQL Quiz 1" aria-label="NEXT: SQL Quiz 1">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/01/SQL-Quiz-2/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/01/SQL-Quiz-2/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/01/SQL-Quiz-2/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/01/SQL-Quiz-2/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/01/SQL-Quiz-2/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/01/SQL-Quiz-2/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>Univera in Seattle</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>UNIVERA</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

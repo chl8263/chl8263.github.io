@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>SQL Quiz 6 - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"SQL Quiz 6\n\n\n1. In EMP table, print SAL value as the cumulate in the EMPNO ascending sort order as example in the below.\n\n\n\n2. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below.\n\n123456SELECT job,       ename,       sal,       ROW_NUMBER() OVER(ORDER BY SAL) AS rank  FROM emp WHERE job = &apos;SALESMAN&apos;\n\n3. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below.\n123456SELECT job,       ename,       sal,       RANK() OVER(ORDER BY SAL) AS rank  FROM emp WHERE job = &apos;SALESMAN&apos;\n\n4. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below.\n\n123456SELECT job,       ename,       sal,       DENSE_RANK() OVER(ORDER BY SAL) AS rank  FROM emp WHERE job = &apos;SALESMAN&apos;\n\n5. Print SQL to clone EMP table which for backup. (Table name is ‘EMP_BAK_TABLE)12CREATE TABLE EMP_BAK_TABLE        AS SELECT * FROM emp;\n","dateCreated":"2019-12-18T19:01:12-08:00","dateModified":"2020-01-02T22:19:48-08:00","datePublished":"2019-12-18T19:01:12-08:00","description":"SQL Quiz 6","headline":"SQL Quiz 6","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2019/12/18/SQL-Quiz-6/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2019/12/18/SQL-Quiz-6/","keywords":"Oracle"}</script>
+    <meta name="description" content="SQL Quiz 6">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="SQL Quiz 6">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;SQL-Quiz-6&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="SQL Quiz 6">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;SQL-Quiz-6&#x2F;1.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;SQL-Quiz-6&#x2F;2.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;SQL-Quiz-6&#x2F;3.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;SQL-Quiz-6&#x2F;4.PNG">
+<meta property="og:updated_time" content="2020-01-03T06:19:48.275Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;SQL-Quiz-6&#x2F;1.PNG">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2019/12/18/sql-quiz-6/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            SQL Quiz 6
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2019-12-18T19:01:12-08:00">
+	
+		    Dec 18, 2019
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/Oracle/">Oracle</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>SQL Quiz 6</p>
+<a id="more"></a>
+
+<h3 id="1-In-EMP-table-print-SAL-value-as-the-cumulate-in-the-EMPNO-ascending-sort-order-as-example-in-the-below"><a href="#1-In-EMP-table-print-SAL-value-as-the-cumulate-in-the-EMPNO-ascending-sort-order-as-example-in-the-below" class="headerlink" title="1. In EMP table, print SAL value as the cumulate in the EMPNO ascending sort order as example in the below."></a>1. In EMP table, print SAL value as the cumulate in the EMPNO ascending sort order as example in the below.</h3><img src="/2019/12/18/SQL-Quiz-6/1.PNG" class>
+
+
+
+<h3 id="2-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below"><a href="#2-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below" class="headerlink" title="2. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below."></a>2. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below.</h3><img src="/2019/12/18/SQL-Quiz-6/2.PNG" class>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT job,</span><br><span class="line">       ename,</span><br><span class="line">       sal,</span><br><span class="line">       ROW_NUMBER() OVER(ORDER BY SAL) AS rank</span><br><span class="line">  FROM emp</span><br><span class="line"> WHERE job = &apos;SALESMAN&apos;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below"><a href="#3-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below" class="headerlink" title="3. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below."></a>3. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below.</h3><img src="/2019/12/18/SQL-Quiz-6/3.PNG" class>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT job,</span><br><span class="line">       ename,</span><br><span class="line">       sal,</span><br><span class="line">       RANK() OVER(ORDER BY SAL) AS rank</span><br><span class="line">  FROM emp</span><br><span class="line"> WHERE job = &apos;SALESMAN&apos;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below"><a href="#4-In-EMP-table-print-lowest-salary-among-‘SALESMAN’-employee-ranks-in-order-as-example-in-the-below" class="headerlink" title="4. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below."></a>4. In EMP table, print lowest salary among ‘SALESMAN’ employee ranks in order as example in the below.</h3><img src="/2019/12/18/SQL-Quiz-6/4.PNG" class>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT job,</span><br><span class="line">       ename,</span><br><span class="line">       sal,</span><br><span class="line">       DENSE_RANK() OVER(ORDER BY SAL) AS rank</span><br><span class="line">  FROM emp</span><br><span class="line"> WHERE job = &apos;SALESMAN&apos;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-Print-SQL-to-clone-EMP-table-which-for-backup-Table-name-is-‘EMP-BAK-TABLE"><a href="#5-Print-SQL-to-clone-EMP-table-which-for-backup-Table-name-is-‘EMP-BAK-TABLE" class="headerlink" title="5. Print SQL to clone EMP table which for backup. (Table name is ‘EMP_BAK_TABLE)"></a>5. Print SQL to clone EMP table which for backup. (Table name is ‘EMP_BAK_TABLE)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE EMP_BAK_TABLE</span><br><span class="line">        AS SELECT * FROM emp;</span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Oracle/" rel="tag">Oracle</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/02/SQL-Quiz-7/" data-tooltip="SQL-Quiz-7" aria-label="PREVIOUS: SQL-Quiz-7">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/17/Algorithm-Seattle-Hackers-December/" data-tooltip="[Algorithm]Seattle Hackers December" aria-label="NEXT: [Algorithm]Seattle Hackers December">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/18/SQL-Quiz-6/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/18/SQL-Quiz-6/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/18/SQL-Quiz-6/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/02/SQL-Quiz-7/" data-tooltip="SQL-Quiz-7" aria-label="PREVIOUS: SQL-Quiz-7">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/17/Algorithm-Seattle-Hackers-December/" data-tooltip="[Algorithm]Seattle Hackers December" aria-label="NEXT: [Algorithm]Seattle Hackers December">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/18/SQL-Quiz-6/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/18/SQL-Quiz-6/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/18/SQL-Quiz-6/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/18/SQL-Quiz-6/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2019/12/18/SQL-Quiz-6/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/18/SQL-Quiz-6/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>Univera in Seattle</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>UNIVERA</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

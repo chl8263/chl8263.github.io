@@ -8,6 +8,86 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2020/01/20/Spring-IOC/</loc>
+        <lastmod>2020-01-24T03:36:08.551Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2020/01/02/SQL-Quiz-9/</loc>
+        <lastmod>2020-01-04T05:07:11.259Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2020/01/02/SQL-Quiz-8/</loc>
+        <lastmod>2020-01-03T07:53:15.308Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2020/01/02/SQL-Quiz-7/</loc>
+        <lastmod>2020-01-03T07:36:04.472Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/12/18/SQL-Quiz-6/</loc>
+        <lastmod>2020-01-03T06:19:48.275Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/12/09/SQL-Quiz-5/</loc>
+        <lastmod>2020-01-03T06:19:36.950Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/12/05/SQL-Quiz-4/</loc>
+        <lastmod>2019-12-19T04:38:53.735Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/12/01/SQL-Quiz-3/</loc>
+        <lastmod>2019-12-19T04:38:52.049Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/12/01/SQL-Quiz-2/</loc>
+        <lastmod>2019-12-19T04:38:46.203Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/11/29/SQL-Quiz-1/</loc>
+        <lastmod>2019-12-19T04:38:41.914Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2019/12/17/Algorithm-Seattle-Hackers-December/</loc>
         <lastmod>2019-12-18T07:39:45.980Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,46 +98,6 @@
     <url>
         <loc>http://yoursite.com/2019/12/11/Functional-Programing-with-ES6/</loc>
         <lastmod>2019-12-14T06:00:19.812Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2019/12/09/Database-Question-5/</loc>
-        <lastmod>2019-12-09T08:35:59.440Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2019/12/05/Database-Question-4/</loc>
-        <lastmod>2019-12-08T04:58:26.375Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2019/12/01/Database-Question-3/</loc>
-        <lastmod>2019-12-06T07:48:27.005Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2019/11/29/Database-Question-1/</loc>
-        <lastmod>2019-12-06T03:23:23.858Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2019/12/01/Database-Question-2/</loc>
-        <lastmod>2019-12-06T03:23:15.001Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

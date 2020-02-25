@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Ewan">
+    <title>SQL-Quiz-7 - Ewan</title>
+    <meta name="author" content="Ewan">
+    
+    
+    
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ewan","sameAs":["https://github.com/chl8263"]},"articleBody":"SQL Quiz 7\n\n\n1. In EMP table, print update sentence whose employees with a job of ‘SALESMAN’ to 400.123UPDATE EMP_BAK_TABLE   SET sal = sal + 400 WHERE job = &apos;SALESMAN&apos;\n\n2. In EMP table, print update sentence that adds a year as employees whose salary higher than their average salary123UPDATE EMP_BAK_TABLE   SET hiredate = hiredate + (INTERVAL &apos;1&apos; YEAR) WHERE sal &gt; (SELECT AVG(sal) FROM emp)\n\n3. In EMP table, print update sentence that adds 100 in COMM column and multiply 2 times for employee whose job of ‘CLERK’ and multiply 3 times for employee whose job of ‘MANAGER’ and multiply 4 times for employee whose have another job.1234567UPDATE EMP_BAK_TABLE   SET COMM = COMM + 100,       SAL = CASE  WHEN job = &apos;CLERK&apos; THEN sal * 2  WHEN job = &apos;MANAGER&apos; THEN sal * 3  ELSE sal * 4END\n\n4. In EMP table, print delete sentence that employee whose name start with ‘M’.12DELETE FROM EMP_BAK_TABLE WHERE ename LIKE &apos;M%&apos;\n\n5. In EMP table, print delete sentence that employee whose salary higher than another average salary.12DELETE FROM EMP_BAK_TABLE WHERE sal &gt; (SELECT AVG(sal) FROM EMP_BAK_TABLE);\n","dateCreated":"2020-01-02T22:26:35-08:00","dateModified":"2020-01-02T23:36:04-08:00","datePublished":"2020-01-02T22:26:35-08:00","description":"SQL Quiz 7","headline":"SQL-Quiz-7","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2020/01/02/SQL-Quiz-7/"},"publisher":{"@type":"Organization","name":"Ewan","sameAs":["https://github.com/chl8263"]},"url":"http://yoursite.com/2020/01/02/SQL-Quiz-7/","keywords":"Oracle"}</script>
+    <meta name="description" content="SQL Quiz 7">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="SQL-Quiz-7">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;SQL-Quiz-7&#x2F;index.html">
+<meta property="og:site_name" content="Ewan">
+<meta property="og:description" content="SQL Quiz 7">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-01-03T07:36:04.472Z">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-qzxoj8vwpwflkywpoiojlbfhypkle2aaefe2va6fjnw0jhutqvkxmalkeg10.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152693678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-152693678-1');
+    </script>
+
+
+    
+    <link rel="canonical" href="http://yoursite.com/2020/01/02/sql-quiz-7/">
+    
+        
+    
+<link rel="alternate" href="/atom.xml" title="Ewan" type="application/atom+xml">
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/%20" aria-label>
+            Ewan
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="3">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-code" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/chl8263" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="3" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            SQL-Quiz-7
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-01-02T22:26:35-08:00">
+	
+		    Jan 02, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Develop/">Develop</a>, <a class="category-link" href="/categories/Develop/Oracle/">Oracle</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>SQL Quiz 7</p>
+<a id="more"></a>
+
+<h3 id="1-In-EMP-table-print-update-sentence-whose-employees-with-a-job-of-‘SALESMAN’-to-400"><a href="#1-In-EMP-table-print-update-sentence-whose-employees-with-a-job-of-‘SALESMAN’-to-400" class="headerlink" title="1. In EMP table, print update sentence whose employees with a job of ‘SALESMAN’ to 400."></a>1. In EMP table, print update sentence whose employees with a job of ‘SALESMAN’ to 400.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE EMP_BAK_TABLE</span><br><span class="line">   SET sal = sal + 400</span><br><span class="line"> WHERE job = &apos;SALESMAN&apos;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-In-EMP-table-print-update-sentence-that-adds-a-year-as-employees-whose-salary-higher-than-their-average-salary"><a href="#2-In-EMP-table-print-update-sentence-that-adds-a-year-as-employees-whose-salary-higher-than-their-average-salary" class="headerlink" title="2. In EMP table, print update sentence that adds a year as employees whose salary higher than their average salary"></a>2. In EMP table, print update sentence that adds a year as employees whose salary higher than their average salary</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE EMP_BAK_TABLE</span><br><span class="line">   SET hiredate = hiredate + (INTERVAL &apos;1&apos; YEAR)</span><br><span class="line"> WHERE sal &gt; (SELECT AVG(sal) FROM emp)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-In-EMP-table-print-update-sentence-that-adds-100-in-COMM-column-and-multiply-2-times-for-employee-whose-job-of-‘CLERK’-and-multiply-3-times-for-employee-whose-job-of-‘MANAGER’-and-multiply-4-times-for-employee-whose-have-another-job"><a href="#3-In-EMP-table-print-update-sentence-that-adds-100-in-COMM-column-and-multiply-2-times-for-employee-whose-job-of-‘CLERK’-and-multiply-3-times-for-employee-whose-job-of-‘MANAGER’-and-multiply-4-times-for-employee-whose-have-another-job" class="headerlink" title="3. In EMP table, print update sentence that adds 100 in COMM column and multiply 2 times for employee whose job of ‘CLERK’ and multiply 3 times for employee whose job of ‘MANAGER’ and multiply 4 times for employee whose have another job."></a>3. In EMP table, print update sentence that adds 100 in COMM column and multiply 2 times for employee whose job of ‘CLERK’ and multiply 3 times for employee whose job of ‘MANAGER’ and multiply 4 times for employee whose have another job.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">UPDATE EMP_BAK_TABLE</span><br><span class="line">   SET COMM = COMM + 100,</span><br><span class="line">       SAL = CASE</span><br><span class="line">  WHEN job = &apos;CLERK&apos; THEN sal * 2</span><br><span class="line">  WHEN job = &apos;MANAGER&apos; THEN sal * 3</span><br><span class="line">  ELSE sal * 4</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-In-EMP-table-print-delete-sentence-that-employee-whose-name-start-with-‘M’"><a href="#4-In-EMP-table-print-delete-sentence-that-employee-whose-name-start-with-‘M’" class="headerlink" title="4. In EMP table, print delete sentence that employee whose name start with ‘M’."></a>4. In EMP table, print delete sentence that employee whose name start with ‘M’.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM EMP_BAK_TABLE</span><br><span class="line"> WHERE ename LIKE &apos;M%&apos;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-In-EMP-table-print-delete-sentence-that-employee-whose-salary-higher-than-another-average-salary"><a href="#5-In-EMP-table-print-delete-sentence-that-employee-whose-salary-higher-than-another-average-salary" class="headerlink" title="5. In EMP table, print delete sentence that employee whose salary higher than another average salary."></a>5. In EMP table, print delete sentence that employee whose salary higher than another average salary.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM EMP_BAK_TABLE</span><br><span class="line"> WHERE sal &gt; (SELECT AVG(sal) FROM EMP_BAK_TABLE);</span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Oracle/" rel="tag">Oracle</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/02/SQL-Quiz-8/" data-tooltip="SQL-Quiz-8" aria-label="PREVIOUS: SQL-Quiz-8">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/18/SQL-Quiz-6/" data-tooltip="SQL Quiz 6" aria-label="NEXT: SQL Quiz 6">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/01/02/SQL-Quiz-7/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/01/02/SQL-Quiz-7/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/01/02/SQL-Quiz-7/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 Ewan. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/02/SQL-Quiz-8/" data-tooltip="SQL-Quiz-8" aria-label="PREVIOUS: SQL-Quiz-8">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/12/18/SQL-Quiz-6/" data-tooltip="SQL Quiz 6" aria-label="NEXT: SQL Quiz 6">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/01/02/SQL-Quiz-7/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/01/02/SQL-Quiz-7/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/01/02/SQL-Quiz-7/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/01/02/SQL-Quiz-7/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2020/01/02/SQL-Quiz-7/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/01/02/SQL-Quiz-7/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Ewan</h4>
+        
+            <div id="about-card-bio"><p>Univera in Seattle</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>UNIVERA</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vqnglixqajgdwt4fxrzxppqfrwfocetn06uhkvefevarg03ywudbnzrwoqog.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>
